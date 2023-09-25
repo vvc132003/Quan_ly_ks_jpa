@@ -16,17 +16,23 @@
 			<%@ include file="/WEB-INF/layout/header.jsp"%>
 			<div id="content">
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
-				<div class="square" style="background-color: rgb(0, 128, 0) ">
-					<a>Còn trống</a>
-				</div>
-				<div class="square">
-					<a>Đã có khách</a>
-				</div>
-				<div class="square">
-					<a>Đã đặt</a>
-				</div>
-				<div class="square">
-					<a>Đang sửa chữa</a>
+				<br>
+				<div style="text-align: center">
+					<div class="square" style="background-color: #00CC00">
+						<a>Còn trống</a>
+					</div>
+					<div class="square" style="background-color: #FF0000">
+						<a>Có khách</a>
+					</div>
+					<div class="square" style="background-color: rgb(128,128,0)">
+						<a>Khách đặt</a>
+					</div>
+					<div class="square" style="background-color: rgb(255, 0, 255)">
+						<a>Đang sửa chữa</a>
+					</div>
+					<div class="square" style="background-color:  #C0C0C0">
+						<a>Chưa dọn</a>
+					</div>
 				</div>
 				<%@ include file="/WEB-INF/views/room.jsp"%>
 			</div>

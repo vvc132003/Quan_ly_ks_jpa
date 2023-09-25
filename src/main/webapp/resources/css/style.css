@@ -3440,6 +3440,7 @@ table.projects tr td:first-child {
 	padding: 40px;
 	text-align: center;
 	cursor: pointer;
+	border-radius: 20px;
 }
 
 .room-box:hover {
@@ -3506,61 +3507,60 @@ table.projects tr td:first-child {
 	background-color: #ffffff;
 }
 
-.reserved {
-	background-color: #ff0000;
+.cokhach {
+	background-color: #FF0000;
 	/* Màu đỏ cho phòng có người */
 }
 
-.available {
-	background-color: rgb(0, 128, 0);
+.controng {
+	background-color: #00CC00;
 	/* Màu xanh lá cây cho phòng trống */
 }
 
-.under-repair {
-	background-color: rgb(255, 128, 64);
+.dangsua {
+	background-color: rgb(255, 0, 255);
 	/* Màu đỏ cho phòng có người */
 }
 
-.booked {
-	background-color: rgb(0, 128, 255);
+.dadat {
+	background-color: rgb(128, 128, 0);
 	/* Màu đỏ cho phòng có người */
 }
 
+.chuadon {
+	background-color: #C0C0C0;
+
+}
 
 h3 {
 	text-align: center;
 }
 
-p{
+p {
 	color: rgb(255, 255, 255);
-	font-size: 15px;
+	font-size: 20px;
 }
+
 /* Định dạng chung cho tất cả các ô vuông */
 .square {
 	width: 200px;
-	/* Chiều rộng */
-	height: 100px;
-	/* Chiều cao */
+	height: 40px;
 	text-align: center;
-	/* Canh giữa nội dung văn bản */
 	display: inline-block;
-	/* Hiển thị ô vuông trên cùng một dòng */
 	margin-right: 10px;
-	/* Khoảng cách giữa các ô vuông */
 	margin-bottom: 10px;
-	/* Khoảng cách giữa các dòng */
+	color: white;
 }
 
 /* Định dạng cho nội dung văn bản trong ô vuông */
 .square a {
 	text-decoration: none;
-	/* Loại bỏ gạch chân liên kết */
 	color: white;
-	/* Màu văn bản trắng */
 	font-weight: bold;
-	/* Đậm */
 	display: block;
-	/* Hiển thị liên kết như một khối */
 	padding: 10px;
-	/* Khoảng cách bên trong ô vuông */
+	line-height: 1.5;
+	/* Điều chỉnh giá trị này để căn chữ theo chiều dọc */
+	text-align: center;
+	/* Để căn chữ theo chiều ngang vào giữa ô vuông */
 }
