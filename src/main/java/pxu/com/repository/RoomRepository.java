@@ -6,24 +6,24 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import pxu.com.model.Room;
+import pxu.com.model.Phong;
 
 @Repository("roomRepository")
-public interface RoomRepository extends JpaRepository<Room, Integer> {
+public interface RoomRepository extends JpaRepository<Phong, Long> {
 
-	@Modifying
-	@Query("UPDATE Room r SET r.status = 'có khách' WHERE r.id = :roomId")
-	void markRoomAsRented(@Param("roomId") int roomId);
-
-	@Modifying
-	@Query("UPDATE Room r SET r.status = 'đang sửa chữa' WHERE r.id = :roomId")
-	void updatesuachua(@Param("roomId") int roomId);
-
-	@Modifying
-	@Query("UPDATE Room r SET r.status = 'còn trống' WHERE r.id = :roomId")
-	void updatecontrong(@Param("roomId") int roomId);
-
-	@Modifying
-	@Query("UPDATE Room r SET r.status = 'đã đặt' WHERE r.id = :roomId")
-	void updatedadat(@Param("roomId") int roomId);
+//	@Modifying
+//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'có khách' WHERE r.MaPhong = :roomId")
+//	void markRoomAsRented(@Param("roomId") Long roomId);
+//
+//	@Modifying
+//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đang sửa chữa' WHERE r.MaPhong = :roomId")
+//	void updatesuachua(@Param("roomId") Long roomId);
+//
+//	@Modifying
+//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'còn trống' WHERE r.MaPhong = :roomId")
+//	void updatecontrong(@Param("roomId") Long roomId);
+//
+//	@Modifying
+//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đã đặt' WHERE r.MaPhong = :roomId")
+//	void updatedadat(@Param("roomId") Long roomId);
 }

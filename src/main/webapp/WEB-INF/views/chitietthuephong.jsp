@@ -24,7 +24,7 @@
 							<thead>
 								<tr>
 									<th>ID Phiếu Thuê</th>
-									<th>Tên Phiếu Thuê</th>
+									<th>MaKhachHang</th>
 									<th>status</th>
 									<th>ID ROOM</th>
 								</tr>
@@ -32,10 +32,10 @@
 							<tbody>
 								<c:forEach var="phieuThuePhong" items="${phieuThuePhongList}">
 									<tr>
-										<td>${phieuThuePhong.id_thue}</td>
-										<td>${phieuThuePhong.name}</td>
-										<td>${phieuThuePhong.status}</td>
-										<td>${phieuThuePhong.room.id}</td>
+										<td>${phieuThuePhong.MaThuePhong}</td>
+										<td>${phieuThuePhong.MaKhachHang}</td>
+										<td>${phieuThuePhong.TrangThai}</td>
+										<td>${phieuThuePhong.phong.MaPhong}</td>
 									</tr>
 									<a
 										href="updatedangsuachua?roomId=${phieuThuePhong.room.id}&idthue=${phieuThuePhong.id_thue}">Hoàn

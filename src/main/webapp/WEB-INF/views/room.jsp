@@ -7,19 +7,19 @@
 				<c:forEach var="room" items="${rooms}" varStatus="status">
 					<c:set var="statusClass">
 						<c:choose>
-							<c:when test="${room.status eq 'có khách'}">
+							<c:when test="${room.tinhTrangPhong eq 'có khách'}">
                 cokhach			
             </c:when>
-							<c:when test="${room.status eq 'còn trống'}">
+							<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
                 controng
             </c:when>
-							<c:when test="${room.status eq 'đang sửa chữa'}">
+							<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
                 dangsua
             </c:when>
-							<c:when test="${room.status eq 'đã đặt'}">
+							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
                 dadat
             </c:when>
-							<c:when test="${room.status eq 'chưa dọn'}">
+							<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
                 chuadon
             </c:when>
 							<c:otherwise>
@@ -28,23 +28,23 @@
 						</c:choose>
 					</c:set>
 					<div id="table-${status.index}" class="room-box ${statusClass}">
-						<p>Số phòng: ${room.id}</p>
-						<p>Loại phòng: ${room.room_name}</p>
-						<p>Giá: ${room.price}</p>
+						<p>Số phòng: ${room.maPhong}</p>
+						<p>Loại phòng: ${room.loaiPhong}</p>
+						<p>Giá: ${room.giaTien}</p>
 						<c:choose>
-							<c:when test="${room.status eq 'có khách'}">
+							<c:when test="${room.tinhTrangPhong eq 'có khách'}">
 								<i class="fas fa-bed"></i>
 							</c:when>
-							<c:when test="${room.status eq 'còn trống'}">
+							<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
 								<i class="fas fa-door-open"></i>
 							</c:when>
-							<c:when test="${room.status eq 'đã đặt'}">
+							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 								<i class="fas fa-calendar-check"></i>
 							</c:when>
-							<c:when test="${room.status eq 'đang sửa chữa'}">
+							<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
 								<i class="fas fa-wrench"></i>
 							</c:when>
-							<c:when test="${room.status eq 'chưa dọn'}">
+							<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
 								<i class="fas fa-exclamation-circle"></i>
 							</c:when>
 							<c:otherwise>
@@ -53,27 +53,27 @@
 						</c:choose>
 						<div class="context-menu">
 							<c:choose>
-								<c:when test="${room.status eq 'có khách'}">
-									<a href="rooms?roomId=${room.id}">Xem Phiếu Thuê Phòng</a>
+								<c:when test="${room.tinhTrangPhong eq 'có khách'}">
+									<a href="rooms?roomId=${room.maPhong}">Xem Phiếu Thuê Phòng</a>
 								</c:when>
-								<c:when test="${room.status eq 'còn trống'}">
-									<a href="updatestartroom?roomId=${room.id}">Thuê phòng</a>
+								<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
+									<a href="updatestartroom?roomId=${room.maPhong}">Thuê phòng</a>
 <%-- 									<a href="updatestartroom?roomId=${room.id}">Thuê phòng</a>
  --%>								</c:when>
-								<c:when test="${room.status eq 'đã đặt'}">
+								<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 									<a href="" data-bs-toggle="modal" data-bs-target="#addModall"
-										class="rent-room-link" data-room-id="${room.id}">Check
+										class="rent-room-link" data-room-id="${room.maPhong}">Check
 										nhận phòng</a>
 								</c:when>
-								<c:when test="${room.status eq 'đang sửa chữa'}">
-									<a href="updatecontrong?roomId=${room.id}">Hoàn tất sửa
+								<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
+									<a href="updatecontrong?roomId=${room.maPhong}">Hoàn tất sửa
 										chữa</a>
 								</c:when>
 							</c:choose>
 						</div>
 					</div>
 					<!-- Add a div to display student information -->
-					<div class="student-info" id="student-info-${room.id}"></div>
+					<div class="student-info" id="student-info-${room.maPhong}"></div>
 				</c:forEach>
 			</div>
 		</div>

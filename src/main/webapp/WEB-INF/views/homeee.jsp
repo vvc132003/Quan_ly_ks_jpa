@@ -24,13 +24,13 @@
 					<div class="square" style="background-color: #FF0000">
 						<a>Có khách</a>
 					</div>
-					<div class="square" style="background-color: rgb(128,128,0)">
+					<div class="square" style="background-color: rgb(128, 128, 0)">
 						<a>Khách đặt</a>
 					</div>
 					<div class="square" style="background-color: rgb(255, 0, 255)">
 						<a>Đang sửa chữa</a>
 					</div>
-					<div class="square" style="background-color:  #C0C0C0">
+					<div class="square" style="background-color: #C0C0C0">
 						<a>Chưa dọn</a>
 					</div>
 				</div>

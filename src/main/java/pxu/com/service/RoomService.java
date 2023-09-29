@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pxu.com.exception.ResourceNotFoundException;
-import pxu.com.model.PhieuThuePhong;
-import pxu.com.model.Room;
+import pxu.com.model.ThuePhong;
+import pxu.com.model.Phong;
 import pxu.com.repository.RoomRepository;
 import pxu.com.repository.ThueRepository;
 
@@ -20,27 +20,28 @@ public class RoomService {
 	@Autowired
 	private RoomRepository roomRepository;
 
-	@Transactional
-	public void updattrangthaiphong(int roomId) {
-		roomRepository.markRoomAsRented(roomId);
-	}
+//	@Transactional
+//	public void updattrangthaiphong(Long roomId) {
+//		roomRepository.markRoomAsRented(roomId);
+//	}
+//
+//	@Transactional
+//	public void updatedadat(Long roomId) {
+//		roomRepository.updatedadat(roomId);
+//	}
+//
+//	@Transactional
+//	public void updatesuachua(Long roomId) {
+//		roomRepository.updatesuachua(roomId);
+//	}
+//
+//	@Transactional
+//	public void updatecontrong(Long roomId) {
+//		roomRepository.updatecontrong(roomId);
+//	}
 
 	@Transactional
-	public void updatedadat(int roomId) {
-		roomRepository.updatedadat(roomId);
-	}
-
-	@Transactional
-	public void updatesuachua(int roomId) {
-		roomRepository.updatesuachua(roomId);
-	}
-
-	@Transactional
-	public void updatecontrong(int roomId) {
-		roomRepository.updatecontrong(roomId);
-	}
-
-	public List<Room> getRooms() {
+	public List<Phong> getRooms() {
 		return roomRepository.findAll();
 	}
 
