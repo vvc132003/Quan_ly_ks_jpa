@@ -2,6 +2,7 @@ package pxu.com.service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -10,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 import pxu.com.exception.ResourceNotFoundException;
 import pxu.com.model.ThuePhong;
+import pxu.com.model.DichVu;
 import pxu.com.model.Phong;
 import pxu.com.repository.RoomRepository;
-import pxu.com.repository.ThueRepository;
 
 @Service
 public class RoomService {
@@ -20,10 +21,10 @@ public class RoomService {
 	@Autowired
 	private RoomRepository roomRepository;
 
-//	@Transactional
-//	public void updattrangthaiphong(Long roomId) {
-//		roomRepository.markRoomAsRented(roomId);
-//	}
+	@Transactional
+	public void updattrangthaiphong(Long maPhong) {
+		roomRepository.markRoomAsRented(maPhong);
+	}
 //
 //	@Transactional
 //	public void updatedadat(Long roomId) {
@@ -43,6 +44,11 @@ public class RoomService {
 	@Transactional
 	public List<Phong> getRooms() {
 		return roomRepository.findAll();
+	}
+
+	@Transactional
+	public Optional<Phong> getphong(Long id) {
+		return roomRepository.findById(id);
 	}
 
 }

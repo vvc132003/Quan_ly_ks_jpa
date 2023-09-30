@@ -21,9 +21,6 @@ public class KhachHang {
 	@Column(name = "HoVaTenDem")
 	private String hoVaTenDem;
 
-	@Column(name = "Ten")
-	private String ten;
-
 	@Column(name = "SoDienThoai")
 	private String soDienThoai;
 
@@ -53,13 +50,6 @@ public class KhachHang {
 		this.hoVaTenDem = hoVaTenDem;
 	}
 
-	public String getTen() {
-		return ten;
-	}
-
-	public void setTen(String ten) {
-		this.ten = ten;
-	}
 
 	public String getSoDienThoai() {
 		return soDienThoai;
@@ -93,12 +83,11 @@ public class KhachHang {
 		this.danhSachThuePhong = danhSachThuePhong;
 	}
 
-	public KhachHang(Long maKhachHang, String hoVaTenDem, String ten, String soDienThoai, String email, String diaChi,
+	public KhachHang(Long maKhachHang, String hoVaTenDem,  String soDienThoai, String email, String diaChi,
 			Collection<ThuePhong> danhSachThuePhong) {
 		super();
 		this.maKhachHang = maKhachHang;
 		this.hoVaTenDem = hoVaTenDem;
-		this.ten = ten;
 		this.soDienThoai = soDienThoai;
 		this.email = email;
 		this.diaChi = diaChi;

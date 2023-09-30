@@ -57,17 +57,18 @@
 									<a href="rooms?roomId=${room.maPhong}">Xem Phiếu Thuê Phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
-									<a href="updatestartroom?roomId=${room.maPhong}">Thuê phòng</a>
-<%-- 									<a href="updatestartroom?roomId=${room.id}">Thuê phòng</a>
- --%>								</c:when>
+									<a
+										href="${pageContext.request.contextPath}/thuephong/thuephong?idPhong=${room.maPhong}">Thuê
+										phòng</a>
+								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 									<a href="" data-bs-toggle="modal" data-bs-target="#addModall"
 										class="rent-room-link" data-room-id="${room.maPhong}">Check
 										nhận phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
-									<a href="updatecontrong?roomId=${room.maPhong}">Hoàn tất sửa
-										chữa</a>
+									<a href="updatecontrong?roomId=${room.maPhong}">Hoàn tất
+										sửa chữa</a>
 								</c:when>
 							</c:choose>
 						</div>

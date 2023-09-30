@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pxu.com.model.ThuePhong;
+import pxu.com.model.DichVu;
 import pxu.com.model.NhanVien;
 import pxu.com.model.Phong;
-import pxu.com.service.PhieuThuePhongService;
+import pxu.com.service.DichVuService;
 import pxu.com.service.RoomService;
+import pxu.com.service.ThuePhongService;
 import pxu.com.service.UserService;
 
 @Controller
@@ -26,10 +28,13 @@ public class RoomController {
 	private RoomService roomService;
 
 	@Autowired
-	private PhieuThuePhongService phieuThuePhongService;
+	private ThuePhongService thuePhongService;
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private DichVuService dichVuService;
 
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -50,19 +55,21 @@ public class RoomController {
 		NhanVien nhanVien = userService.findBytaiKhoanAndPassword(taiKhoan);
 		if (nhanVien != null && nhanVien.getMatKhau().equals(matKhau)) {
 			session.setAttribute("loggedInUser", taiKhoan);
-			session.setAttribute("fullName", nhanVien.getHoVaTenDem());
+			session.setAttribute("fullName", nhanVien.getMaNhanVien());
 			return "redirect:/room/listroom";
 		} else {
 			return "login";
 		}
 	}
 
-//	@GetMapping("/rooms")
-//	public String getPhieuThuePhongByRoomId(@RequestParam("roomId") Long roomId, Model model) {
-//		List<ThuePhong> phieuThuePhongList = phieuThuePhongService.getPhieuThuePhongByRoomId(roomId);
-//		model.addAttribute("phieuThuePhongList", phieuThuePhongList);
-//		return "chitietthuephong";
-//	}
+	@GetMapping("/rooms")
+	public String getPhieuThuePhongByRoomId(@RequestParam("roomId") Long roomId, Model model) {
+		List<ThuePhong> phieuThuePhongList = thuePhongService.findAllByMaPhong(roomId);
+		List<DichVu> dichVus = dichVuService.getDichVus();
+		model.addAttribute("dichVus", dichVus);
+		model.addAttribute("phieuThuePhongList", phieuThuePhongList);
+		return "chitietthuephong";
+	}
 
 //	@GetMapping("/updatestartroom")
 //	public String updatephong(@RequestParam("roomId") Long roomId, Model model) {

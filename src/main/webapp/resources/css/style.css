@@ -216,7 +216,7 @@ a,
 }
 
 .btn-success {
-	color: #fff;
+	color: rgb(0, 0, 0);
 	background-color: #1ed085;
 	border-color: #1ed085;
 }
@@ -3536,10 +3536,8 @@ h3 {
 	text-align: center;
 }
 
-p {
-	color: rgb(255, 255, 255);
-	font-size: 20px;
-}
+
+
 
 /* Định dạng chung cho tất cả các ô vuông */
 .square {

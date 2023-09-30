@@ -33,20 +33,27 @@
 				aria-expanded="false" class="dropdown-toggle"><i
 					class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
 				<ul class="collapse list-unstyled" id="dashboard">
-					<li><a href="dashboard.html">> <span>Default
-								Dashboard</span></a></li>
+					<li><a href="${pageContext.request.contextPath}/room/listroom">>
+							<span>Dashboard</span>
+					</a></li>
 					<li><a href="dashboard_2.html">> <span>Dashboard
 								style 2</span></a></li>
 				</ul></li>
 			<!-- nhân viên  -->
-			<li><a href="widgets.html"><i
+			<li><a
+				href="${pageContext.request.contextPath}/room/listroom"><i
+					class="fa fa-clock-o orange_color"></i> <span>Phòng</span></a></li>
+			<li><a
+				href="${pageContext.request.contextPath}/nhanvien/listnhanvien"><i
 					class="fa fa-clock-o orange_color"></i> <span>Nhân Viên</span></a></li>
 			<!-- KHÁCH HÀNG-->
-			<li><a href="tables.html"><i
+			<li><a
+				href="${pageContext.request.contextPath}/khachhang/listkhachhang"><i
 					class="fa fa-paper-plane red_color"></i> <span>Khách Hàng</span></a></li>
 
 			<!-- dịch vụ -->
-			<li><a href="${pageContext.request.contextPath}/dichvu/listDichVu"><i
+			<li><a
+				href="${pageContext.request.contextPath}/dichvu/listDichVu"><i
 					class="fa fa-table purple_color2"></i> <span>Dịch vụ</span></a></li>
 			<!--đơn -->
 

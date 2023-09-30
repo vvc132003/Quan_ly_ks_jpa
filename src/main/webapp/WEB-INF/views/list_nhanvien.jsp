@@ -21,32 +21,35 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="container">
-					<h1 class="mt-5 mb-4 text-center">Danh sách Dịch Vụ</h1>
-					<a href="${pageContext.request.contextPath}/dichvu/dichvuform"
-						class="btn btn-primary mb-4">Thêm dịch vụ</a>
+					<h1 class="mt-5 mb-4 text-center">Danh sách Khách Hàng</h1>
+					<a
+						href="${pageContext.request.contextPath}/khachhang/khachhangform"
+						class="btn btn-primary mb-4">Thêm nhân viên</a>
 					<div class="table-container">
 						<table class="table table-striped">
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Tên dịch vụ</th>
-									<th>Mô tả</th>
-									<th>Gía bán</th>
-									<th>Image</th>
+									<th>Tên nhân viên</th>
+									<th>Lương</th>
+									<th>Tài khoản</th>
+									<th>Mật khẩu</th>
+									<th>Vai trò</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${dichVus}" var="khoahoc">
+								<c:forEach items="${nhanViens}" var="khoahoc">
 									<tr>
-										<td>${khoahoc.maDichVu}</td>
-										<td>${khoahoc.tenDichVu}</td>
-										<td>${khoahoc.moTa}</td>
-										<td>${khoahoc.gia}</td>
-										<td><img class="small-image" src="${khoahoc.image}"
-											alt="Ảnh dịch vụ"></td>
-										<td><a href="deleteDichVu?dichvuID=${khoahoc.maDichVu}">Delete</a>
-											<a href="updateDichVu?dichvuID=${khoahoc.maDichVu}">Update</a></td>
+										<td>${khoahoc.maNhanVien}</td>
+										<td>${khoahoc.hoVaTenDem}</td>
+										<td>${khoahoc.luong}</td>
+										<td>${khoahoc.taiKhoan}</td>
+										<td>${khoahoc.matKhau}</td>
+										<td>${khoahoc.chucVu}</td>
+										<td><a
+											href="deletekhachhang?khachhangid=${khoahoc.maNhanVien}">Delete</a>
+											<a href="updateDichVu?dichvuID=${khoahoc.maNhanVien}">Update</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

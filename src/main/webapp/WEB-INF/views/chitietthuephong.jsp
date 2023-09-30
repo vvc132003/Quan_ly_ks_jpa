@@ -18,36 +18,98 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="row">
-					<div class="col-6"></div>
-					<div class="col-6">
-						<table>
+					<!-- thong tin khách hàng -->
+					<div class="col-7">
+						<div class="text-bg-success  p-2">Chi tiết thuê phòng</div>
+						<div class="row">
+							<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>ID Phiếu Thuê</th>
-									<th>MaKhachHang</th>
-									<th>status</th>
-									<th>ID ROOM</th>
+									<th>ID</th>
+									<th>Tên khách hàng</th>
+									<th>Ngày nhận phòng</th>
+									<th>Ngày trả phòng</th>
+									<th>Tổng tiền</th>
+									<th>Trạng thái</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="phieuThuePhong" items="${phieuThuePhongList}">
+								<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
 									<tr>
-										<td>${phieuThuePhong.MaThuePhong}</td>
-										<td>${phieuThuePhong.MaKhachHang}</td>
-										<td>${phieuThuePhong.TrangThai}</td>
-										<td>${phieuThuePhong.phong.MaPhong}</td>
+										<td>${phieuThuePhong.maThuePhong}</td>
+										<td>${phieuThuePhong.khachHang.hoVaTenDem}</td>
+										<td>${phieuThuePhong.ngayNhanPhong}</td>
+										<td>${phieuThuePhong.ngayTraPhong}</td>
+										<td>${phieuThuePhong.tongTien}</td>
+										<td>${phieuThuePhong.trangThai}</td>
+										<td><a
+											href="updateDichVu?dichvuID=${phieuThuePhong.maThuePhong}">Trả
+												phòng</a></td>
 									</tr>
-									<a
-										href="updatedangsuachua?roomId=${phieuThuePhong.room.id}&idthue=${phieuThuePhong.id_thue}">Hoàn
-										tất sửa chữa và Cập nhật trạng thái thuê</a>
 								</c:forEach>
 							</tbody>
 						</table>
+						</div><hr>
+						<div class="text-bg-success  p-2">Chi tiết dịch vụ</div>
+						<div class="row">
+							<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Tên khách hàng</th>
+									<th>Ngày nhận phòng</th>
+									<th>Ngày trả phòng</th>
+									<th>Tổng tiền</th>
+									<th>Trạng thái</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
+									<tr>
+										<td>${phieuThuePhong.maThuePhong}</td>
+										<td>${phieuThuePhong.khachHang.hoVaTenDem}</td>
+										<td>${phieuThuePhong.ngayNhanPhong}</td>
+										<td>${phieuThuePhong.ngayTraPhong}</td>
+										<td>${phieuThuePhong.tongTien}</td>
+										<td>${phieuThuePhong.trangThai}</td>
+										<td><a
+											href="updateDichVu?dichvuID=${phieuThuePhong.maThuePhong}">Trả
+												phòng</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						</div>
+						
+					</div>
+					
+					
+					
+					
+					<!--dịch vụ  -->
+					<div class="col-5">
+					<div class="text-bg-primary p-2">Thêm dịch vụ</div>
+						<c:forEach var="dichVu" items="${dichVus}" varStatus="status">
+							<div id="dichvu" class="text-color:black">
+								<p class="p">${dichVu.tenDichVu}</p>
+								<p class="p">${dichVu.gia}</p>
+								<p class="p">${room.giaTien}</p>
+								<img src="${dichVu.image}" alt="${dichVu.tenDichVu}" />
+							</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+<style>
+#dichvu .p {
+    color: rgb(0 0 0);
+    font-size: 20px;
+}
 
+</style>
 </html>
