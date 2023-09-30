@@ -35,6 +35,16 @@ public class ThueDichVu {
 	@Column(name = "SoLuong")
 	private int soLuong;
 
+	
+	
+	public Long getMaThueDichVu() {
+		return maThueDichVu;
+	}
+
+	public void setMaThueDichVu(Long maThueDichVu) {
+		this.maThueDichVu = maThueDichVu;
+	}
+
 	public ThuePhong getThuePhong() {
 		return thuePhong;
 	}

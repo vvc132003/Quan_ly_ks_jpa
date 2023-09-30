@@ -28,6 +28,12 @@ public class DichVuService {
 	}
 
 	@Transactional
+	public DichVu getDichVuById(Long id) {
+		Optional<DichVu> optionalDichVu = dichVuRepository.findById(id);
+		return optionalDichVu.orElse(null);
+	}
+
+	@Transactional
 	public Optional<DichVu> getDichVu(Long maDichVu) {
 		return dichVuRepository.findById(maDichVu);
 	}

@@ -29,6 +29,11 @@ public class NhanVienService {
 	public List<NhanVien> getNhanvien() {
 		return nhanVienRepository.findAll();
 	}
+	@Transactional
+	public NhanVien getNhanvienById(Long id) {
+		Optional<NhanVien> optionalDichVu = nhanVienRepository.findById(id);
+		return optionalDichVu.orElse(null);
+	}
 
 //	@Transactional
 //	public Optional<KhachHang> getKhachhang(Long maKhachHang) {
