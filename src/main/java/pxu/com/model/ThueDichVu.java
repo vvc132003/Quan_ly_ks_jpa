@@ -1,5 +1,7 @@
 package pxu.com.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,13 +14,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "thuedichvu")
 public class ThueDichVu {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaThueDichVu")
 	private Long maThueDichVu;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "MaThuePhong")
 	private ThuePhong thuePhong;
@@ -26,8 +27,7 @@ public class ThueDichVu {
 	@ManyToOne
 	@JoinColumn(name = "MaDichVu")
 	private DichVu dichVu;
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name = "MaNhanVien")
 	private NhanVien nhanVien;
@@ -35,8 +35,17 @@ public class ThueDichVu {
 	@Column(name = "SoLuong")
 	private int soLuong;
 
-	
-	
+	@Column(name = "ThanhTien")
+	private BigDecimal thanhTien;
+
+	public BigDecimal getThanhTien() {
+		return thanhTien;
+	}
+
+	public void setThanhTien(BigDecimal thanhTien) {
+		this.thanhTien = thanhTien;
+	}
+
 	public Long getMaThueDichVu() {
 		return maThueDichVu;
 	}
@@ -77,19 +86,23 @@ public class ThueDichVu {
 		this.soLuong = soLuong;
 	}
 
-	public ThueDichVu(ThuePhong thuePhong, DichVu dichVu, NhanVien nhanVien, int soLuong) {
+	public ThueDichVu(Long maThueDichVu, ThuePhong thuePhong, DichVu dichVu, NhanVien nhanVien, int soLuong,
+			BigDecimal thanhTien) {
 		super();
+		this.maThueDichVu = maThueDichVu;
 		this.thuePhong = thuePhong;
 		this.dichVu = dichVu;
 		this.nhanVien = nhanVien;
 		this.soLuong = soLuong;
+		this.thanhTien = thanhTien;
 	}
 
 	public ThueDichVu() {
 		super();
 	}
 
-	// Constructors, getters, setters
-	
-	
+	public BigDecimal calculateTotalCost() {
+		return thanhTien.multiply(BigDecimal.valueOf(soLuong));
+	}
+
 }

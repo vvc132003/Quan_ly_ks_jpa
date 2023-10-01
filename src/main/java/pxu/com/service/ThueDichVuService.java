@@ -1,5 +1,6 @@
 package pxu.com.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +25,14 @@ public class ThueDichVuService {
 		return thueDichVuRepository.findAll();
 	}
 
+	@Transactional
 	public List<ThueDichVu> getThueDichVusByMaThuePhong(Long maThuePhong) {
 		return thueDichVuRepository.findByThuePhongMaThuePhong(maThuePhong);
+	}
+
+	@Transactional
+	public BigDecimal calculateTotalCostByMaThuePhong(Long maThuePhong) {
+		return thueDichVuRepository.calculateTotalCostByMaThuePhong(maThuePhong);
 	}
 
 	@Transactional

@@ -1,5 +1,6 @@
 package pxu.com.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,8 +89,11 @@ public class RoomController {
 			Long maThuePhong = thuePhong.getMaThuePhong();
 			List<ThueDichVu> thueDichVus = thueDichVuService.getThueDichVusByMaThuePhong(maThuePhong);
 			thuePhong.setDanhSachThueDichVu(thueDichVus);
+			BigDecimal totalCost = thueDichVuService.calculateTotalCostByMaThuePhong(maThuePhong);
 			model.addAttribute("thueDichVus", thueDichVus);
+			model.addAttribute("totalCost", totalCost);
 		}
+
 		model.addAttribute("phieuThuePhongList", phieuThuePhongList);
 		return "chitietthuephong";
 	}
@@ -110,8 +114,13 @@ public class RoomController {
 		NhanVien nhanVien = nhanVienService.getNhanvienById(maNhanVien);
 		thueDichVu.setThuePhong(thuePhong);
 		thueDichVu.setDichVu(dichVu);
-		thueDichVu.setSoLuong(1);
 		thueDichVu.setNhanVien(nhanVien);
+		thueDichVu.setSoLuong(1);
+		/// tính ttieenf
+		BigDecimal soLuong = BigDecimal.valueOf(thueDichVu.getSoLuong());
+		BigDecimal gia = dichVu.getGia();
+		BigDecimal thanhTien = soLuong.multiply(gia);
+		thueDichVu.setThanhTien(thanhTien);
 		thueDichVuService.saveThueDichVu(thueDichVu);
 		return "redirect:/room/rooms?roomId=" + maPhong;
 	}

@@ -1,5 +1,6 @@
 package pxu.com.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,8 +51,10 @@ public class ThuePhongController {
 	}
 
 	@PostMapping("/addthuephong")
-	public String luuThuePhong(@ModelAttribute("thuePhong") ThuePhong thuePhong, @RequestParam("phong.maPhong") Long maPhong,
-			Model model) {
+	public String luuThuePhong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
+			@RequestParam("phong.maPhong") Long maPhong, Model model) {
+		thuePhong.setNgayNhanPhong(new Date());
+		thuePhong.setNgayTraPhong(new Date());
 		thuePhongService.thuePhong(thuePhong);
 		roomService.updattrangthaiphong(maPhong);
 		return "redirect:/room/listroom";
