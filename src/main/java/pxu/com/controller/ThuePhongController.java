@@ -60,6 +60,7 @@ public class ThuePhongController {
 		BigDecimal tongtiennn = new BigDecimal("0");
 		thuePhong.setTongTien(tongtiennn);
 		thuePhongService.thuePhong(thuePhong);
+		thuePhongService.sendEmails();
 		roomService.updattrangthaiphong(maPhong);
 		return "redirect:/room/listroom";
 	}

@@ -2,7 +2,15 @@ package pxu.com.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +52,6 @@ public class KhachHangService {
 		khachHang.setMaKhachHang(maKhachHang);
 		return Optional.of(khachHangRepository.save(khachHang));
 	}
+
+	
 }
