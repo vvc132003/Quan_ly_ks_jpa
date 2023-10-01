@@ -1,6 +1,7 @@
 package pxu.com.controller;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pxu.com.model.ThuePhong;
+import pxu.com.model.TraPhong;
 import pxu.com.model.DichVu;
 import pxu.com.model.NhanVien;
 import pxu.com.model.Phong;
@@ -25,6 +27,7 @@ import pxu.com.service.NhanVienService;
 import pxu.com.service.RoomService;
 import pxu.com.service.ThueDichVuService;
 import pxu.com.service.ThuePhongService;
+import pxu.com.service.TraPhongService;
 import pxu.com.service.UserService;
 
 @Controller
@@ -47,6 +50,9 @@ public class RoomController {
 
 	@Autowired
 	private NhanVienService nhanVienService;
+
+	@Autowired
+	private TraPhongService traPhongService;
 
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -125,22 +131,39 @@ public class RoomController {
 		return "redirect:/room/rooms?roomId=" + maPhong;
 	}
 
+	@PostMapping("/addtraphong")
+	public String addtraphong(@ModelAttribute("traphong") TraPhong traPhong,
+			@RequestParam("maThuePhong") Long maThuePhong, @RequestParam("maPhong") Long maPhong,
+			@RequestParam("tongTien") BigDecimal tongTien, @RequestParam("maNhanVien") Long maNhanVien, Model model) {
+		NhanVien nhanVien = nhanVienService.getNhanvienById(maNhanVien);
+		ThuePhong thuePhong = thuePhongService.getThuePhong(maThuePhong);
+		traPhong.setThuePhong(thuePhong);
+		traPhong.setNhanVien(nhanVien);
+		traPhong.setTongTien(tongTien);
+		traPhong.setNgayTraPhong(new Date());
+		thuePhongService.updatethuephong(maThuePhong, tongTien);
+		traPhongService.traphong(traPhong);
+		roomService.updatesuachua(maPhong);
+		return "redirect:/room/listroom";
+	}
+
 	@GetMapping("/deleteThueDichVu")
 	public String deleteDichVu(@RequestParam("thuedichvuID") Long id, @RequestParam("maPhong") Long maPhong) {
 		thueDichVuService.deleteThueDichVu(id);
 		return "redirect:/room/rooms?roomId=" + maPhong;
 	}
+
 //	@GetMapping("/updatestartroom")
 //	public String updatephong(@RequestParam("roomId") Long roomId, Model model) {
 //		roomService.updattrangthaiphong(roomId);
 //		return "redirect:/room/listroom";
 //	}
 //
-//	@GetMapping("/updatecontrong")
-//	public String updatecontrong(@RequestParam("roomId") Long roomId, Model model) {
-//		roomService.updatecontrong(roomId);
-//		return "redirect:/room/listroom";
-//	}
+	@GetMapping("/updatecontrong")
+	public String updatecontrong(@RequestParam("maPhong") Long maPhong, Model model) {
+		roomService.updatecontrong(maPhong);
+		return "redirect:/room/listroom";
+	}
 
 //	@GetMapping("/updatedangsuachua")
 //	public String updatedangsuachua(@RequestParam("roomId") Long roomId, Model model,

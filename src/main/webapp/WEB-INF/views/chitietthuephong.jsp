@@ -92,10 +92,17 @@
 						<div class="text-bg-primary  p-2">Thanh toán</div>
 						<div class="payment-section">
 							<div class="payment-details">
-								<form:form action="" method="post" modelAttribute="thueDichVu">
-									<input type="hidden" name="maDichVu" value="${totalCost}" />
+								<form:form action="addtraphong" method="post"
+									modelAttribute="traphong">
+									<input type="hidden" name="tongTien" value="${totalCost}" />
 									<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
 										<p>Tổng số tiền cần thanh toán: ${totalCost}</p>
+										<input type="hidden" name="maNhanVien"
+											value="${phieuThuePhong.nhanVien.maNhanVien}" />
+										<input type="hidden" name="maThuePhong"
+											value="${phieuThuePhong.maThuePhong}" />
+										<input type="hidden" name="maPhong"
+											value="${phieuThuePhong.phong.maPhong}" />
 									</c:forEach>
 									<button type="submit" class="payment-button">Thanh
 										toán</button>

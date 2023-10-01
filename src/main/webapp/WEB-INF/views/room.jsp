@@ -13,7 +13,7 @@
 							<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
                 controng
             </c:when>
-							<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
+							<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
                 dangsua
             </c:when>
 							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
@@ -41,7 +41,7 @@
 							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 								<i class="fas fa-calendar-check"></i>
 							</c:when>
-							<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
+							<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
 								<i class="fas fa-wrench"></i>
 							</c:when>
 							<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
@@ -66,8 +66,8 @@
 										class="rent-room-link" data-room-id="${room.maPhong}">Check
 										nhận phòng</a>
 								</c:when>
-								<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
-									<a href="updatecontrong?roomId=${room.maPhong}">Hoàn tất
+								<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
+									<a href="updatecontrong?maPhong=${room.maPhong}">Hoàn tất
 										sửa chữa</a>
 								</c:when>
 							</c:choose>

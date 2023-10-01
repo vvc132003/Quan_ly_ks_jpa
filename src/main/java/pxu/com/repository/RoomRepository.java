@@ -14,17 +14,17 @@ import pxu.com.model.Phong;
 public interface RoomRepository extends JpaRepository<Phong, Long> {
 
 	@Modifying
-    @Transactional
-    @Query("UPDATE Phong p SET p.tinhTrangPhong = 'có khách' WHERE p.maPhong = :maPhong")
+	@Transactional
+	@Query("UPDATE Phong p SET p.tinhTrangPhong = 'có khách' WHERE p.maPhong = :maPhong")
 	void markRoomAsRented(@Param("maPhong") Long maPhong);
 
-//	@Modifying
-//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đang sửa chữa' WHERE r.MaPhong = :roomId")
-//	void updatesuachua(@Param("maPhong") Long roomId);
+	@Modifying
+	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'dang sua chua' WHERE r.maPhong = :maPhong")
+	void updatesuachua(@Param("maPhong") Long maPhong);
 
-//	@Modifying
-//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'còn trống' WHERE r.MaPhong = :roomId")
-//	void updatecontrong(@Param("roomId") Long roomId);
+	@Modifying
+	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'còn trống' WHERE r.maPhong = :maPhong")
+	void updatecontrong(@Param("maPhong") Long maPhong);
 //
 //	@Modifying
 //	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đã đặt' WHERE r.MaPhong = :roomId")

@@ -1,5 +1,6 @@
 package pxu.com.controller;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +56,9 @@ public class ThuePhongController {
 			@RequestParam("phong.maPhong") Long maPhong, Model model) {
 		thuePhong.setNgayNhanPhong(new Date());
 		thuePhong.setNgayTraPhong(new Date());
+		thuePhong.setTrangThai("Đang thuê");
+		BigDecimal tongtiennn = new BigDecimal("0");
+		thuePhong.setTongTien(tongtiennn);
 		thuePhongService.thuePhong(thuePhong);
 		roomService.updattrangthaiphong(maPhong);
 		return "redirect:/room/listroom";

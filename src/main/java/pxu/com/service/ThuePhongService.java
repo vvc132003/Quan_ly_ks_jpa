@@ -1,5 +1,6 @@
 package pxu.com.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +31,12 @@ public class ThuePhongService {
 	public List<ThuePhong> findAllByMaPhong(Long maPhong) {
 		return thuePhongRepository.findAllByMaPhongAndTrangThai(maPhong);
 	}
-	
+
+	@Transactional
+	public void updatethuephong(Long maThuePhong, BigDecimal tongTien) {
+		thuePhongRepository.updateTrangThaiAndTongTien(tongTien, maThuePhong);
+	}
+
 	@Transactional
 	public ThuePhong getThuePhong(Long maThuePhong) {
 		Optional<ThuePhong> tOptional = thuePhongRepository.findById(maThuePhong);

@@ -25,21 +25,22 @@ public class RoomService {
 	public void updattrangthaiphong(Long maPhong) {
 		roomRepository.markRoomAsRented(maPhong);
 	}
+
 //
 //	@Transactional
 //	public void updatedadat(Long roomId) {
 //		roomRepository.updatedadat(roomId);
 //	}
 //
-//	@Transactional
-//	public void updatesuachua(Long roomId) {
-//		roomRepository.updatesuachua(roomId);
-//	}
-//
-//	@Transactional
-//	public void updatecontrong(Long roomId) {
-//		roomRepository.updatecontrong(roomId);
-//	}
+	@Transactional
+	public void updatesuachua(Long roomId) {
+		roomRepository.updatesuachua(roomId);
+	}
+
+	@Transactional
+	public void updatecontrong(Long maPhong) {
+		roomRepository.updatecontrong(maPhong);
+	}
 
 	@Transactional
 	public List<Phong> getRooms() {

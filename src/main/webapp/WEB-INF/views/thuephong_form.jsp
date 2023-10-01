@@ -27,7 +27,7 @@
 					<form:form action="addthuephong" method="POST"
 						modelAttribute="thuePhong">
 						<div class="mb-3">
-							<form:input type="" path="phong.maPhong" id="maPhong"
+							<form:input type="hidden" path="phong.maPhong" id="maPhong"
 								class="form-control" required="required" />
 						</div>
 						<label for="">Khách hàng:</label>
@@ -38,9 +38,9 @@
 							</c:forEach>
 						</select>
 						<div class="mb-3">
-							<form:input type="" path="nhanVien.maNhanVien"
-								value="${fullName}" id="maNhanVien"
-								class="form-control" required="required" />
+							<form:input type="hidden" path="nhanVien.maNhanVien"
+								value="${fullName}" id="maNhanVien" class="form-control"
+								required="required" />
 						</div>
 						<%-- <div class="mb-3">
 							<label for="ngayNhanPhong">Ngày nhận phòng:</label>
@@ -52,18 +52,16 @@
 							<form:input type="date" path="ngayTraPhong" id="ngayTraPhong"
 								class="form-control" required="required" />
 						</div> --%>
-						<div class="mb-3">
-							<label for="tongTien">Tổng tiền:</label>
-							<form:input path="tongTien" id="tongTien" class="form-control"
-								required="required" />
+						<%-- <div class="mb-3">
+							<form:input type="hidden" path="tongTien" id="tongTien"
+								class="form-control" required="required" />
 						</div>
 						<div class="mb-3">
-							<label for="trangThai">Trạng thái:</label>
-							<form:input path="trangThai" id="trangThai" class="form-control"
-								required="required" />
-						</div>
+							<form:input type="hidden" path="trangThai" id="trangThai"
+								class="form-control" required="required" />
+						</div> --%>
 						<input type="submit" value="Thuê phòng" class="btn btn-primary" />
-						
+
 					</form:form>
 				</div>
 			</div>
