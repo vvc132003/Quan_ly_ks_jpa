@@ -13,12 +13,13 @@
 			<div class="icon_setting"></div>
 			<div class="user_profle_side">
 				<div class="user_img">
-					<img class="img-responsive" src="images/layout_img/user_img.jpg"
+					<img class="img-responsive" src="<c:out value="${image}" />"
 						alt="#" />
 				</div>
 				<div class="user_info">
-					<%-- 					<h6><c:out value="${fullName}" /></h6>
- --%>
+					<h6>
+						<c:out value="${namee}" />
+					</h6>
 					<p>
 						<span class="online_animation"></span> Online
 					</p>
@@ -40,8 +41,7 @@
 								style 2</span></a></li>
 				</ul></li>
 			<!-- nhân viên  -->
-			<li><a
-				href="${pageContext.request.contextPath}/room/listroom"><i
+			<li><a href="${pageContext.request.contextPath}/room/listroom"><i
 					class="fa fa-clock-o orange_color"></i> <span>Phòng</span></a></li>
 			<li><a
 				href="${pageContext.request.contextPath}/nhanvien/listnhanvien"><i
@@ -69,7 +69,7 @@
 				</ul></li>
 
 			<li><a href="charts.html"><i
-					class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
+					class="fa fa-bar-chart-o green_color"></i> <span>Thống kê</span></a></li>
 			<li><a href="settings.html"><i
 					class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
 		</ul>

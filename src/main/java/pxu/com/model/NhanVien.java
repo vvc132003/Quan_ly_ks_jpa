@@ -35,6 +35,8 @@ public class NhanVien {
 	@Column(name = "MatKhau")
 	private String matKhau;
 
+	@Column(name = "Image")
+	private String image;
 	// Một nhân viên có thể liên quan đến nhiều giao dịch thuê phòng
 	@OneToMany(mappedBy = "nhanVien")
 	private Collection<ThuePhong> danhSachThuePhong;
@@ -56,6 +58,32 @@ public class NhanVien {
 		return maNhanVien;
 	}
 
+	public NhanVien(Long maNhanVien, String hoVaTenDem, String chucVu, BigDecimal luong, String taiKhoan,
+			String matKhau, String image, Collection<ThuePhong> danhSachThuePhong,
+			Collection<ChuyenPhong> danhSachChuyenPhong, Collection<TraPhong> danhSachTraPhong,
+			Collection<ThueDichVu> danhSachThueDichVu) {
+		super();
+		this.maNhanVien = maNhanVien;
+		this.hoVaTenDem = hoVaTenDem;
+		this.chucVu = chucVu;
+		this.luong = luong;
+		this.taiKhoan = taiKhoan;
+		this.matKhau = matKhau;
+		this.image = image;
+		this.danhSachThuePhong = danhSachThuePhong;
+		this.danhSachChuyenPhong = danhSachChuyenPhong;
+		this.danhSachTraPhong = danhSachTraPhong;
+		this.danhSachThueDichVu = danhSachThueDichVu;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public void setMaNhanVien(Long maNhanVien) {
 		this.maNhanVien = maNhanVien;
 	}
@@ -68,7 +96,6 @@ public class NhanVien {
 		this.hoVaTenDem = hoVaTenDem;
 	}
 
-	
 	public String getChucVu() {
 		return chucVu;
 	}
@@ -76,8 +103,6 @@ public class NhanVien {
 	public void setChucVu(String chucVu) {
 		this.chucVu = chucVu;
 	}
-
-
 
 	public BigDecimal getLuong() {
 		return luong;
@@ -132,24 +157,6 @@ public class NhanVien {
 	}
 
 	public void setDanhSachThueDichVu(Collection<ThueDichVu> danhSachThueDichVu) {
-		this.danhSachThueDichVu = danhSachThueDichVu;
-	}
-
-	
-
-	public NhanVien(Long maNhanVien, String hoVaTenDem, String chucVu, BigDecimal luong, String taiKhoan,
-			String matKhau, Collection<ThuePhong> danhSachThuePhong, Collection<ChuyenPhong> danhSachChuyenPhong,
-			Collection<TraPhong> danhSachTraPhong, Collection<ThueDichVu> danhSachThueDichVu) {
-		super();
-		this.maNhanVien = maNhanVien;
-		this.hoVaTenDem = hoVaTenDem;
-		this.chucVu = chucVu;
-		this.luong = luong;
-		this.taiKhoan = taiKhoan;
-		this.matKhau = matKhau;
-		this.danhSachThuePhong = danhSachThuePhong;
-		this.danhSachChuyenPhong = danhSachChuyenPhong;
-		this.danhSachTraPhong = danhSachTraPhong;
 		this.danhSachThueDichVu = danhSachThueDichVu;
 	}
 

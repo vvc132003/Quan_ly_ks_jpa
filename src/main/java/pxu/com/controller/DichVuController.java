@@ -60,5 +60,12 @@ public class DichVuController {
 		dichVuService.updateDichVu(dichVu.getMaDichVu(), dichVu);
 		return "redirect:/dichvu/listDichVu";
 	}
+	
+//	@GetMapping("/thongke")
+//    public String thongKe(Model model) {
+//        List<Object[]> thongKeData = dichVuService.thongKeDichVuDuocThueNhieuNhat();
+//        model.addAttribute("thongKeData", thongKeData);
+//        return "thongke"; // Tên trang JSP
+//    }
 
 }

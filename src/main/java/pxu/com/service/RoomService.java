@@ -26,6 +26,11 @@ public class RoomService {
 		roomRepository.markRoomAsRented(maPhong);
 	}
 
+	@Transactional
+	public Phong findRoomByMaPhong(Long maPhong) {
+		return roomRepository.findByMaPhong(maPhong);
+	}
+
 //
 //	@Transactional
 //	public void updatedadat(Long roomId) {
@@ -50,6 +55,16 @@ public class RoomService {
 	@Transactional
 	public Optional<Phong> getphong(Long id) {
 		return roomRepository.findById(id);
+	}
+
+	@Transactional
+	public long countPhongDangThue() {
+		return roomRepository.countPhongDangThue();
+	}
+
+	@Transactional
+	public long countPhongTrong() {
+		return roomRepository.countPhongTrong();
 	}
 
 }

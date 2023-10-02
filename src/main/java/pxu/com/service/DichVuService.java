@@ -50,4 +50,9 @@ public class DichVuService {
 		dichVu.setMaDichVu(maDichVu);
 		return Optional.of(dichVuRepository.save(dichVu));
 	}
+
+//	public List<Object[]> thongKeDichVuDuocThueNhieuNhat() {
+//		return dichVuRepository.thongKeDichVuDuocThueNhieuNhat();
+//	}
+
 }

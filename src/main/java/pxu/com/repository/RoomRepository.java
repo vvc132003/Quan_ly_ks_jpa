@@ -1,5 +1,7 @@
 package pxu.com.repository;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,4 +31,14 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 //	@Modifying
 //	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đã đặt' WHERE r.MaPhong = :roomId")
 //	void updatedadat(@Param("roomId") Long roomId);
+	
+	
+    Phong findByMaPhong(Long maPhong);
+    
+    @Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'có khách'")
+    long countPhongDangThue();
+
+    @Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'còn trống'")
+    long countPhongTrong();
+
 }

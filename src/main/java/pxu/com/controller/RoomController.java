@@ -1,6 +1,8 @@
 package pxu.com.controller;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -62,11 +64,32 @@ public class RoomController {
 	}
 
 	@GetMapping("/listroom")
-	public String listCustomers(Model theModel) {
-		List<Phong> phongs = roomService.getRooms();
+	public String listCustomers(@RequestParam(name = "maPhong", required = false) Long maPhong, Model theModel) {
+		List<Phong> phongs;
+		if (maPhong != null) {
+			Phong phong = roomService.findRoomByMaPhong(maPhong);
+			if (phong != null) {
+				phongs = Collections.singletonList(phong);
+			} else {
+				phongs = new ArrayList<>();
+			}
+		} else {
+			phongs = roomService.getRooms();
+		}
+		long soPhongDangThue = roomService.countPhongDangThue();
+		long soPhongTrong = roomService.countPhongTrong();
 		theModel.addAttribute("rooms", phongs);
+		theModel.addAttribute("soPhongDangThue", soPhongDangThue);
+		theModel.addAttribute("soPhongTrong", soPhongTrong);
 		return "homeee";
 	}
+
+//	@GetMapping("/searchRoomByMaPhong")
+//	public String searchRoomByMaPhong(@RequestParam(name = "maPhong") Long maPhong, Model model) {
+//		List<Phong> phongs = (List<Phong>) roomService.findRoomByMaPhong(maPhong);
+//		model.addAttribute("rooms", phongs);
+//		return "homeee";
+//	}
 
 	@PostMapping("/loginn")
 	public String login(@RequestParam String taiKhoan, @RequestParam String matKhau, Model model, HttpSession session) {
@@ -74,6 +97,8 @@ public class RoomController {
 		if (nhanVien != null && nhanVien.getMatKhau().equals(matKhau)) {
 			session.setAttribute("loggedInUser", taiKhoan);
 			session.setAttribute("fullName", nhanVien.getMaNhanVien());
+			session.setAttribute("namee", nhanVien.getHoVaTenDem());
+			session.setAttribute("image", nhanVien.getImage());
 			return "redirect:/room/listroom";
 		} else {
 			return "login";
@@ -82,14 +107,14 @@ public class RoomController {
 
 	@GetMapping("/rooms")
 	public String getPhieuThuePhongByRoomId(@RequestParam("roomId") Long roomId, Model model) {
-		// Lấy danh sách thuê phòng dựa trên mã phòng
+		// Llay dan g sách dựa tren mã phòng
 		List<ThuePhong> phieuThuePhongList = thuePhongService.findAllByMaPhong(roomId);
 
-		// Lấy danh sách dịch vụ
+		// lay đanh sách dịch cụ
 		List<DichVu> dichVus = dichVuService.getDichVus();
 		model.addAttribute("dichVus", dichVus);
 
-		// Truy vấn thông tin thuê dịch vụ dựa trên mã thuê phòng và thêm vào danh sách
+		// tru vấn thông tin thê dịch vụ dựa trên mã thuê phòng và thêm vào danh sách
 		// thuê phòng
 		for (ThuePhong thuePhong : phieuThuePhongList) {
 			Long maThuePhong = thuePhong.getMaThuePhong();
@@ -99,7 +124,6 @@ public class RoomController {
 			model.addAttribute("thueDichVus", thueDichVus);
 			model.addAttribute("totalCost", totalCost);
 		}
-
 		model.addAttribute("phieuThuePhongList", phieuThuePhongList);
 		return "chitietthuephong";
 	}
@@ -135,10 +159,11 @@ public class RoomController {
 	public String addtraphong(@ModelAttribute("traphong") TraPhong traPhong,
 			@RequestParam("maThuePhong") Long maThuePhong, @RequestParam("maPhong") Long maPhong,
 			@RequestParam("tongTien") BigDecimal tongTien, @RequestParam("maNhanVien") Long maNhanVien,
-			@RequestParam("giaTien") BigDecimal giaTien, Model model) {
+			@RequestParam("giaTien") BigDecimal giaTien, @RequestParam("tienDatCoc") BigDecimal tienDatCoc,
+			Model model) {
 		NhanVien nhanVien = nhanVienService.getNhanvienById(maNhanVien);
 		ThuePhong thuePhong = thuePhongService.getThuePhong(maThuePhong);
-		BigDecimal tongtienkhachhang = tongTien.add(giaTien);
+		BigDecimal tongtienkhachhang = tongTien.add(giaTien).subtract(tienDatCoc);
 		traPhong.setThuePhong(thuePhong);
 		traPhong.setNhanVien(nhanVien);
 		traPhong.setTongTien(tongtienkhachhang);

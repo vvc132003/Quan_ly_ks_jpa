@@ -1,7 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="midde_cont">
-	<div style="padding: 20px 15px;">
+	<div style="padding: 0px 15px;">
+		<div style="text-align: center">
+			<div class="square" style="background-color: #0099CC">
+				<a>Còn trống ${soPhongTrong} phòng</a>
+			</div>
+
+			<div class="square" style="background-color: #009900">
+				<a>Có khách ${soPhongDangThue} phòng</a>
+			</div>
+		</div>
+		<form style="padding: 20px 15px;" action="listroom" method="GET">
+			<label for="maPhong">Tìm kiếm phòng:</label> <input type="text"
+				id="maPhong" name="maPhong"> <input type="submit"
+				value="Search">
+		</form>
 		<div class="text">
 			<div class="room-container">
 				<c:forEach var="room" items="${rooms}" varStatus="status">
@@ -157,11 +171,54 @@ p {
 	font-weight: bold;
 	text-align: center
 }
+
 .room-box:hover {
 	background: rgb(255, 128, 0);
 	color: #f9f9f9;
 }
 </style>
+<style>
+/* CSS cho container bao quanh biểu mẫu */
+.search-container {
+	padding: 20px 15px;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+/* CSS cho nhãn */
+label {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+/* CSS cho trường nhập liệu */
+input[type="text"] {
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+/* CSS cho nút "Search" */
+input[type="submit"] {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+/* CSS cho nút "Search" khi được hover */
+input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+</style>
+
 <script type="text/javascript">
 //JavaScript to handle opening the modal and populating the room ID
 const modal = document.getElementById('roomModal');

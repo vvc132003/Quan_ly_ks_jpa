@@ -102,6 +102,8 @@
 										<p>Tổng Tiền Thuê Dịch Vụ: ${totalCost} VNĐ</p>
 										<p>Tổng Tiền Phòng: ${phieuThuePhong.phong.giaTien} VNĐ</p>
 										<p>Tiền đặt cọc: ${phieuThuePhong.tienDatCoc} VNĐ</p>
+										<input type="hidden" name="tienDatCoc"
+											value="${phieuThuePhong.tienDatCoc}" />
 										<p style="font-size: 20px; font-weight: 500;">Tổng Thanh
 											Toán: ${phieuThuePhong.phong.giaTien + totalCost - phieuThuePhong.tienDatCoc
 											}
