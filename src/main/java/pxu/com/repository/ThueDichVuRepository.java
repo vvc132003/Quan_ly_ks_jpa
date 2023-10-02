@@ -16,6 +16,6 @@ public interface ThueDichVuRepository extends JpaRepository<ThueDichVu, Long> {
 	List<ThueDichVu> findByThuePhongMaThuePhong(Long maThuePhong);
 	
 	
-	@Query("SELECT SUM(td.thanhTien * td.soLuong) FROM ThueDichVu td WHERE td.thuePhong.maThuePhong = :maThuePhong")
+	@Query("SELECT SUM(td.thanhTien) FROM ThueDichVu td WHERE td.thuePhong.maThuePhong = :maThuePhong")
 	BigDecimal  calculateTotalCostByMaThuePhong(@Param("maThuePhong")Long maThuePhong);
 }

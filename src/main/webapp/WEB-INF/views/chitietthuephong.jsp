@@ -50,7 +50,7 @@
 						</div>
 						<hr>
 
-
+						<!-- chi tiết dịch vụ -->
 
 						<div class="text-bg-success  p-2">Chi tiết dịch vụ</div>
 						<div class="row table-container">
@@ -85,6 +85,11 @@
 							</table>
 						</div>
 
+
+
+
+
+
 						<hr>
 						<!--THANH TOÁN  -->
 						<div class="text-bg-primary  p-2">Thanh toán</div>
@@ -94,7 +99,13 @@
 									modelAttribute="traphong">
 									<input type="hidden" name="tongTien" value="${totalCost}" />
 									<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
-										<p>Tổng số tiền cần thanh toán: ${totalCost}</p>
+										<p>Tổng Tiền Thuê Dịch Vụ: ${totalCost} VNĐ</p>
+										<p>Tổng Tiền Phòng: ${phieuThuePhong.phong.giaTien} VNĐ</p>
+										<p>Tiền đặt cọc: ${phieuThuePhong.tienDatCoc} VNĐ</p>
+										<p style="font-size: 20px; font-weight: 500;">Tổng Thanh
+											Toán: ${phieuThuePhong.phong.giaTien + totalCost - phieuThuePhong.tienDatCoc
+											}
+											VNĐ</p>
 										<input type="hidden" name="maNhanVien"
 											value="${phieuThuePhong.nhanVien.maNhanVien}" />
 										<input type="hidden" name="maThuePhong"
@@ -111,6 +122,10 @@
 						</div>
 						<br>
 					</div>
+
+
+
+
 					<!--dịch vụ  -->
 					<div class="col-5 ">
 						<div class="text-bg-primary  p-2">Dịch vụ</div>

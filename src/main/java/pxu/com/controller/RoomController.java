@@ -138,7 +138,7 @@ public class RoomController {
 			@RequestParam("giaTien") BigDecimal giaTien, Model model) {
 		NhanVien nhanVien = nhanVienService.getNhanvienById(maNhanVien);
 		ThuePhong thuePhong = thuePhongService.getThuePhong(maThuePhong);
-		BigDecimal tongtienkhachhang = tongTien.multiply(giaTien);
+		BigDecimal tongtienkhachhang = tongTien.add(giaTien);
 		traPhong.setThuePhong(thuePhong);
 		traPhong.setNhanVien(nhanVien);
 		traPhong.setTongTien(tongtienkhachhang);
@@ -162,6 +162,9 @@ public class RoomController {
 		optionalThueDichVu.ifPresent(thueDichVu -> {
 			int currentSoLuong = thueDichVu.getSoLuong();
 			thueDichVu.setSoLuong(currentSoLuong + 1);
+			BigDecimal gia = thueDichVu.getDichVu().getGia();
+			BigDecimal thanhTien = gia.multiply(BigDecimal.valueOf(thueDichVu.getSoLuong()));
+			thueDichVu.setThanhTien(thanhTien);
 			thueDichVuService.updateThueDichVu(thueDichVu.getMaThueDichVu(), thueDichVu);
 		});
 		return "redirect:/room/rooms?roomId=" + maPhong;

@@ -52,14 +52,14 @@
 							<form:input type="date" path="ngayTraPhong" id="ngayTraPhong"
 								class="form-control" required="required" />
 						</div> --%>
-						<%-- <div class="mb-3">
-							<form:input type="hidden" path="tongTien" id="tongTien"
+						<div class="mb-3">
+							<form:input type="text" path="tienDatCoc" id="tienDatCoc"
 								class="form-control" required="required" />
 						</div>
-						<div class="mb-3">
+						<%-- <div class="mb-3">
 							<form:input type="hidden" path="trangThai" id="trangThai"
 								class="form-control" required="required" />
-						</div> --%>
+						</div>  --%>
 						<input type="submit" value="Thuê phòng" class="btn btn-primary" />
 
 					</form:form>
