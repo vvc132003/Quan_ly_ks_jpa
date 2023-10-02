@@ -134,22 +134,54 @@ public class RoomController {
 	@PostMapping("/addtraphong")
 	public String addtraphong(@ModelAttribute("traphong") TraPhong traPhong,
 			@RequestParam("maThuePhong") Long maThuePhong, @RequestParam("maPhong") Long maPhong,
-			@RequestParam("tongTien") BigDecimal tongTien, @RequestParam("maNhanVien") Long maNhanVien, Model model) {
+			@RequestParam("tongTien") BigDecimal tongTien, @RequestParam("maNhanVien") Long maNhanVien,
+			@RequestParam("giaTien") BigDecimal giaTien, Model model) {
 		NhanVien nhanVien = nhanVienService.getNhanvienById(maNhanVien);
 		ThuePhong thuePhong = thuePhongService.getThuePhong(maThuePhong);
+		BigDecimal tongtienkhachhang = tongTien.multiply(giaTien);
 		traPhong.setThuePhong(thuePhong);
 		traPhong.setNhanVien(nhanVien);
-		traPhong.setTongTien(tongTien);
+		traPhong.setTongTien(tongtienkhachhang);
 		traPhong.setNgayTraPhong(new Date());
-		thuePhongService.updatethuephong(maThuePhong, tongTien);
+		thuePhongService.updatethuephong(maThuePhong, tongtienkhachhang);
 		traPhongService.traphong(traPhong);
 		roomService.updatesuachua(maPhong);
 		return "redirect:/room/listroom";
 	}
 
+//	@GetMapping("/deleteThueDichVu")
+//	public String deleteDichVu(@RequestParam("thuedichvuID") Long id, @RequestParam("maPhong") Long maPhong) {
+//		thueDichVuService.deleteThueDichVu(id);
+//		return "redirect:/room/rooms?roomId=" + maPhong;
+//	}
+
+	@GetMapping("/updateThueDichVu")
+	public String updateThueDichVu(@RequestParam("thuedichvuID") Long maThueDichVu,
+			@RequestParam("maPhong") Long maPhong) {
+		Optional<ThueDichVu> optionalThueDichVu = thueDichVuService.getThueDichVu(maThueDichVu);
+		optionalThueDichVu.ifPresent(thueDichVu -> {
+			int currentSoLuong = thueDichVu.getSoLuong();
+			thueDichVu.setSoLuong(currentSoLuong + 1);
+			thueDichVuService.updateThueDichVu(thueDichVu.getMaThueDichVu(), thueDichVu);
+		});
+		return "redirect:/room/rooms?roomId=" + maPhong;
+	}
+
 	@GetMapping("/deleteThueDichVu")
-	public String deleteDichVu(@RequestParam("thuedichvuID") Long id, @RequestParam("maPhong") Long maPhong) {
-		thueDichVuService.deleteThueDichVu(id);
+	public String deleteThueDichVu(@RequestParam("thuedichvuID") Long maThueDichVu,
+			@RequestParam("maPhong") Long maPhong) {
+		Optional<ThueDichVu> optionalThueDichVu = thueDichVuService.getThueDichVu(maThueDichVu);
+		optionalThueDichVu.ifPresent(thueDichVu -> {
+			int currentSoLuong = thueDichVu.getSoLuong();
+			if (currentSoLuong > 0) {
+				thueDichVu.setSoLuong(currentSoLuong - 1);
+				if (currentSoLuong - 1 == 0) {
+					thueDichVuService.deleteThueDichVu(thueDichVu.getMaThueDichVu());
+				} else {
+					thueDichVuService.updateThueDichVu(thueDichVu.getMaThueDichVu(), thueDichVu);
+				}
+			}
+		});
 		return "redirect:/room/rooms?roomId=" + maPhong;
 	}
 

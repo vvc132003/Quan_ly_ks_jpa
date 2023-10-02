@@ -18,16 +18,16 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div style="text-align: center">
-					<div class="square" style="background-color: #00CC00">
+					<div class="square" style="background-color: #0099CC">
 						<a>Còn trống</a>
 					</div>
-					<div class="square" style="background-color: #FF0000">
+					<div class="square" style="background-color: #009900">
 						<a>Có khách</a>
 					</div>
-					<div class="square" style="background-color: rgb(128, 128, 0)">
+					<div class="square" style="background-color: #660099">
 						<a>Khách đặt</a>
 					</div>
-					<div class="square" style="background-color: rgb(255, 0, 255)">
+					<div class="square" style="background-color: #990033">
 						<a>Đang sửa chữa</a>
 					</div>
 					<div class="square" style="background-color: #C0C0C0">

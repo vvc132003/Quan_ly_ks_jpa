@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="midde_cont">
-	<div style="padding: 22px 38px;">
+	<div style="padding: 20px 15px;">
 		<div class="text">
 			<div class="room-container">
 				<c:forEach var="room" items="${rooms}" varStatus="status">
@@ -33,19 +33,19 @@
 						<p>Giá: ${room.giaTien}</p>
 						<c:choose>
 							<c:when test="${room.tinhTrangPhong eq 'có khách'}">
-								<i class="fas fa-bed"></i>
+								<i class="fas fa-bed" style="color: white;"></i>
 							</c:when>
 							<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
-								<i class="fas fa-door-open"></i>
+								<i class="fas fa-door-open" style="color: white;"></i>
 							</c:when>
 							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
-								<i class="fas fa-calendar-check"></i>
+								<i class="fas fa-calendar-check" style="color: white;"></i>
 							</c:when>
 							<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
-								<i class="fas fa-wrench"></i>
+								<i class="fas fa-wrench" style="color: white;"></i>
 							</c:when>
 							<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
-								<i class="fas fa-exclamation-circle"></i>
+								<i class="fas fa-exclamation-circle" style="color: white;"></i>
 							</c:when>
 							<c:otherwise>
 								<i class="fas fa-question-circle"></i>
@@ -54,7 +54,7 @@
 						<div class="context-menu">
 							<c:choose>
 								<c:when test="${room.tinhTrangPhong eq 'có khách'}">
-									<a href="rooms?roomId=${room.maPhong}">Xem Phiếu Thuê Phòng</a>
+									<a href="rooms?roomId=${room.maPhong}">Thông tin thuê phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
 									<a
@@ -69,6 +69,9 @@
 								<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
 									<a href="updatecontrong?maPhong=${room.maPhong}">Hoàn tất
 										sửa chữa</a>
+								</c:when>
+								<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
+									<a href="updatecontrong?maPhong=${room.maPhong}">Dọn xong</a>
 								</c:when>
 							</c:choose>
 						</div>
@@ -122,6 +125,41 @@
 	color: #95A5A6;
 	font-size: 50px;
 	/* Thêm các thuộc tính khác tùy ý */
+}
+
+.cokhach {
+	background-color: #009900;
+	/* Màu đỏ cho phòng có người */
+}
+
+.controng {
+	background-color: #0099CC;
+	/* Màu xanh lá cây cho phòng trống */
+}
+
+.dangsua {
+	background-color: #990033;
+	/* Màu đỏ cho phòng có người */
+}
+
+.dadat {
+	background-color: #660099;
+	/* Màu đỏ cho phòng có người */
+}
+
+.chuadon {
+	background-color: #C0C0C0;
+}
+
+p {
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center
+}
+.room-box:hover {
+	background: rgb(255, 128, 0);
+	color: #f9f9f9;
 }
 </style>
 <script type="text/javascript">

@@ -19,7 +19,7 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 	void markRoomAsRented(@Param("maPhong") Long maPhong);
 
 	@Modifying
-	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'dang sua chua' WHERE r.maPhong = :maPhong")
+	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'chưa dọn' WHERE r.maPhong = :maPhong")
 	void updatesuachua(@Param("maPhong") Long maPhong);
 
 	@Modifying

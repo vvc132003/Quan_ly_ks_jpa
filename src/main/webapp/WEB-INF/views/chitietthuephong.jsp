@@ -32,7 +32,6 @@
 										<th>Ngày trả phòng</th>
 										<th>Tổng tiền</th>
 										<th>Trạng thái</th>
-										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -44,16 +43,12 @@
 											<td>${phieuThuePhong.ngayTraPhong}</td>
 											<td>${phieuThuePhong.tongTien}</td>
 											<td>${phieuThuePhong.trangThai}</td>
-											<td><a
-												href="updateDichVu?dichvuID=${phieuThuePhong.maThuePhong}">Trả
-													phòng</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
 						<hr>
-
 
 
 
@@ -80,13 +75,16 @@
 											<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
 												<td><a
 													href="deleteThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
-													class="btn btn-danger">Delete</a></td>
+													class="btn btn-danger">-1</a> <a
+													href="updateThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
+													class="btn btn-warning">+1</a></td>
 											</c:forEach>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
+
 						<hr>
 						<!--THANH TOÁN  -->
 						<div class="text-bg-primary  p-2">Thanh toán</div>
@@ -103,6 +101,8 @@
 											value="${phieuThuePhong.maThuePhong}" />
 										<input type="hidden" name="maPhong"
 											value="${phieuThuePhong.phong.maPhong}" />
+										<input type="hidden" name="giaTien"
+											value="${phieuThuePhong.phong.giaTien}" />
 									</c:forEach>
 									<button type="submit" class="payment-button">Thanh
 										toán</button>

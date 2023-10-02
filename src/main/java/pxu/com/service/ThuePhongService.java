@@ -68,7 +68,6 @@ public class ThuePhongService {
 						return new PasswordAuthentication("vvc132003@gmail.com", "mwvfwkbyknepohte");
 					}
 				});
-
 				String from = "vvc132003@gmail.com";
 				String to = thuePhong.getKhachHang().getEmail();
 				String subject = "Gửi đến bạn";

@@ -3434,17 +3434,16 @@ table.projects tr td:first-child {
 
 .room-box {
 	position: relative;
-	width: 300px;
-	height: 240px;
+	width: 270px;
+	height: 210px;
 	border: 1px solid black;
 	padding: 40px;
 	text-align: center;
 	cursor: pointer;
-	border-radius: 20px;
 }
 
 .room-box:hover {
-	background: #ccc;
+	background: rgb(255, 128, 0);
 	color: #f9f9f9;
 }
 
@@ -3507,30 +3506,30 @@ table.projects tr td:first-child {
 	background-color: #ffffff;
 }
 
-.cokhach {
-	background-color: #FF0000;
-	/* Màu đỏ cho phòng có người */
+/*.cokhach {
+	background-color: #009900;
+	 Màu đỏ cho phòng có người 
 }
 
 .controng {
-	background-color: #00CC00;
-	/* Màu xanh lá cây cho phòng trống */
+	background-color: #0099CC;
+	 Màu xanh lá cây cho phòng trống 
 }
 
 .dangsua {
-	background-color: rgb(255, 0, 255);
-	/* Màu đỏ cho phòng có người */
+	background-color: #990033;
+	 Màu đỏ cho phòng có người 
 }
 
 .dadat {
-	background-color: rgb(128, 128, 0);
-	/* Màu đỏ cho phòng có người */
+	background-color: #660099;
+	 Màu đỏ cho phòng có người 
 }
 
 .chuadon {
 	background-color: #C0C0C0;
 
-}
+}*/
 
 h3 {
 	text-align: center;
