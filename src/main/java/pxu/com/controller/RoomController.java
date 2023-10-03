@@ -30,7 +30,7 @@ import pxu.com.service.RoomService;
 import pxu.com.service.ThueDichVuService;
 import pxu.com.service.ThuePhongService;
 import pxu.com.service.TraPhongService;
-import pxu.com.service.UserService;
+import pxu.com.service.NhanVienService;
 
 @Controller
 @RequestMapping("/room")
@@ -40,9 +40,6 @@ public class RoomController {
 
 	@Autowired
 	private ThuePhongService thuePhongService;
-
-	@Autowired
-	private UserService userService;
 
 	@Autowired
 	private DichVuService dichVuService;
@@ -93,7 +90,7 @@ public class RoomController {
 
 	@PostMapping("/loginn")
 	public String login(@RequestParam String taiKhoan, @RequestParam String matKhau, Model model, HttpSession session) {
-		NhanVien nhanVien = userService.findBytaiKhoanAndPassword(taiKhoan);
+		NhanVien nhanVien = nhanVienService.findBytaiKhoanAndPassword(taiKhoan);
 		if (nhanVien != null && nhanVien.getMatKhau().equals(matKhau)) {
 			session.setAttribute("loggedInUser", taiKhoan);
 			session.setAttribute("fullName", nhanVien.getMaNhanVien());

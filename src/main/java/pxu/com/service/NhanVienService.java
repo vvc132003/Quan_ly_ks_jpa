@@ -34,6 +34,10 @@ public class NhanVienService {
 		Optional<NhanVien> optionalDichVu = nhanVienRepository.findById(id);
 		return optionalDichVu.orElse(null);
 	}
+	@Transactional
+	public NhanVien findBytaiKhoanAndPassword(String taiKhoan) {
+		return nhanVienRepository.findByTaiKhoan(taiKhoan);
+	}
 
 //	@Transactional
 //	public Optional<KhachHang> getKhachhang(Long maKhachHang) {

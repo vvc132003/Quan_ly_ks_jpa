@@ -19,7 +19,6 @@ import pxu.com.model.KhachHang;
 import pxu.com.model.NhanVien;
 import pxu.com.model.Phong;
 import pxu.com.model.ThuePhong;
-import pxu.com.post.ThuePhonhForm;
 import pxu.com.service.KhachHangService;
 import pxu.com.service.RoomService;
 import pxu.com.service.ThuePhongService;
