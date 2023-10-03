@@ -53,6 +53,7 @@
 								class="form-control" required="required" />
 						</div> --%>
 						<div class="mb-3">
+							<label for="tienDatCoc">Tiền đặt cọc:</label>
 							<form:input type="text" path="tienDatCoc" id="tienDatCoc"
 								class="form-control" required="required" />
 						</div>

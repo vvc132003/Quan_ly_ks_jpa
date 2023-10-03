@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <div class="midde_cont">
+
+	<!-- Modal -->
+	<div class="modal fade" id="paymentSuccessModal" tabindex="-1"
+		role="dialog" aria-labelledby="paymentSuccessModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<p id="paymentSuccessMessage">${paymentSuccessMessage}</p>
+					<p>Thanh toán thành công !!!</p>
+					<i class="fas fa-check-circle fa-5x" style="color: green;"></i>
+					<!-- Biểu tượng thành công -->
+				</div>
+			</div>
+		</div>
+	</div>
 	<div style="padding: 0px 15px;">
 		<div style="text-align: center">
 			<div class="square" style="background-color: #0099CC">
@@ -74,6 +93,8 @@
 									<a
 										href="${pageContext.request.contextPath}/thuephong/thuephong?idPhong=${room.maPhong}">Thuê
 										phòng</a>
+									<a href="updatedangsuachua?maPhong=${room.maPhong}">Sửa
+										phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 									<a href="" data-bs-toggle="modal" data-bs-target="#addModall"
@@ -86,6 +107,8 @@
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
 									<a href="updatecontrong?maPhong=${room.maPhong}">Dọn xong</a>
+									<a href="updatedangsuachua?maPhong=${room.maPhong}">Sửa
+										phòng</a>
 								</c:when>
 							</c:choose>
 						</div>
@@ -99,42 +122,68 @@
 </div>
 
 <style>
-/* CSS cho biểu tượng trong trạng thái 'có khách' */
+.modal.fade.show {
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	transition: opacity 0.3s ease;
+}
+
+.modal-content {
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	max-width: 1000px;
+	width: 100%;
+	text-align: center;
+}
+
+.modal-content p {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#paymentSuccessMessage {
+	color: green;
+}
+
 .room-box .fa-bed {
 	color: #00FF00; /* Màu sắc */
 	font-size: 50px; /* Kích thước font */
 	/* Thêm các thuộc tính khác tùy ý */
 }
 
-/* CSS cho biểu tượng trong trạng thái 'còn trống' */
 .room-box .fa-door-open {
 	color: #FF0000;
 	font-size: 50px;
-	/* Thêm các thuộc tính khác tùy ý */
 }
 
-/* CSS cho biểu tượng trong trạng thái 'đã đặt' */
 .room-box .fa-calendar-check {
 	color: #3498DB;
 	font-size: 50px;
 	/* Thêm các thuộc tính khác tùy ý */
 }
 
-/* CSS cho biểu tượng trong trạng thái 'đang sửa chữa' */
 .room-box .fa-wrench {
 	color: #8B4513;
 	font-size: 50px;
 	/* Thêm các thuộc tính khác tùy ý */
 }
 
-/* CSS cho biểu tượng trong trạng thái 'chưa dọn' */
 .room-box .fa-exclamation-circle {
 	color: #FF9900;
 	font-size: 50px;
-	/* Thêm các thuộc tính khác tùy ý */
 }
 
-/* CSS mặc định cho biểu tượng nếu không khớp với bất kỳ trạng thái nào */
 .room-box .fa-question-circle {
 	color: #95A5A6;
 	font-size: 50px;
@@ -176,8 +225,6 @@ p {
 	background: rgb(255, 128, 0);
 	color: #f9f9f9;
 }
-
-
 </style>
 <style>
 /* CSS cho container bao quanh biểu mẫu */
@@ -220,6 +267,18 @@ input[type="submit"]:hover {
 	background-color: #0056b3;
 }
 </style>
+<script>
+    // JavaScript để hiển thị modal nếu có thông báo thành công
+    $(document).ready(function() {
+        var paymentSuccessMessage = "${paymentSuccessMessage}";
+
+        if (paymentSuccessMessage !== "") {
+            // Hiển thị modal và đặt nội dung thông báo
+            $('#paymentSuccessMessage').text(paymentSuccessMessage);
+            $('#paymentSuccessModal').modal('show');
+        }
+    });
+</script>
 
 <script type="text/javascript">
 //JavaScript to handle opening the modal and populating the room ID

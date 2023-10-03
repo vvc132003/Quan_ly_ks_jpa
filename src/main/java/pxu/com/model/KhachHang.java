@@ -30,6 +30,42 @@ public class KhachHang {
 	@Column(name = "DiaChi")
 	private String diaChi;
 
+	@Column(name = "TaiKhoan")
+	private String taiKhoan;
+
+	// Trường mật khẩu cho nhân viên
+	@Column(name = "MatKhau")
+	private String matKhau;
+
+	public KhachHang(Long maKhachHang, String hoVaTenDem, String soDienThoai, String email, String diaChi,
+			String taiKhoan, String matKhau, Collection<ThuePhong> danhSachThuePhong) {
+		super();
+		this.maKhachHang = maKhachHang;
+		this.hoVaTenDem = hoVaTenDem;
+		this.soDienThoai = soDienThoai;
+		this.email = email;
+		this.diaChi = diaChi;
+		this.taiKhoan = taiKhoan;
+		this.matKhau = matKhau;
+		this.danhSachThuePhong = danhSachThuePhong;
+	}
+
+	public String getTaiKhoan() {
+		return taiKhoan;
+	}
+
+	public void setTaiKhoan(String taiKhoan) {
+		this.taiKhoan = taiKhoan;
+	}
+
+	public String getMatKhau() {
+		return matKhau;
+	}
+
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
+	}
+
 	// Một khách hàng có nhiều giao dịch thuê phòng
 	@OneToMany(mappedBy = "khachHang")
 	private Collection<ThuePhong> danhSachThuePhong;
@@ -49,7 +85,6 @@ public class KhachHang {
 	public void setHoVaTenDem(String hoVaTenDem) {
 		this.hoVaTenDem = hoVaTenDem;
 	}
-
 
 	public String getSoDienThoai() {
 		return soDienThoai;
@@ -80,17 +115,6 @@ public class KhachHang {
 	}
 
 	public void setDanhSachThuePhong(Collection<ThuePhong> danhSachThuePhong) {
-		this.danhSachThuePhong = danhSachThuePhong;
-	}
-
-	public KhachHang(Long maKhachHang, String hoVaTenDem,  String soDienThoai, String email, String diaChi,
-			Collection<ThuePhong> danhSachThuePhong) {
-		super();
-		this.maKhachHang = maKhachHang;
-		this.hoVaTenDem = hoVaTenDem;
-		this.soDienThoai = soDienThoai;
-		this.email = email;
-		this.diaChi = diaChi;
 		this.danhSachThuePhong = danhSachThuePhong;
 	}
 

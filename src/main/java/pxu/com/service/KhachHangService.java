@@ -18,12 +18,18 @@ import org.springframework.stereotype.Service;
 
 import pxu.com.model.DichVu;
 import pxu.com.model.KhachHang;
+import pxu.com.model.NhanVien;
 import pxu.com.repository.KhachHangRepository;
 
 @Service
 public class KhachHangService {
 	@Autowired
 	private KhachHangRepository khachHangRepository;
+
+	@Transactional
+	public KhachHang findByTenDangNhapAndMatKhau(String taiKhoan, String matKhau) {
+		return khachHangRepository.findByTaiKhoanAndMatKhau(taiKhoan, matKhau);
+	}
 
 	@Transactional
 	public void savekhachhang(KhachHang khachHang) {
@@ -53,5 +59,4 @@ public class KhachHangService {
 		return Optional.of(khachHangRepository.save(khachHang));
 	}
 
-	
 }

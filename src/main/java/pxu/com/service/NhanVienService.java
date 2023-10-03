@@ -34,9 +34,14 @@ public class NhanVienService {
 		Optional<NhanVien> optionalDichVu = nhanVienRepository.findById(id);
 		return optionalDichVu.orElse(null);
 	}
+//	@Transactional
+//	public NhanVien findBytaiKhoanAndPassword(String taiKhoan) {
+//		return nhanVienRepository.findByTaiKhoan(taiKhoan);
+//	}
+	
 	@Transactional
-	public NhanVien findBytaiKhoanAndPassword(String taiKhoan) {
-		return nhanVienRepository.findByTaiKhoan(taiKhoan);
+	public NhanVien findBytaiKhoanAndPassword(String taiKhoan , String matKhau) {
+		return nhanVienRepository.findByTaiKhoanAndMatKhau(taiKhoan, matKhau);
 	}
 
 //	@Transactional

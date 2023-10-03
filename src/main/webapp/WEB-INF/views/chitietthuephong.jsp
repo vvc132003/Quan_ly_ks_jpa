@@ -28,9 +28,8 @@
 									<tr>
 										<th>ID</th>
 										<th>Tên khách hàng</th>
-										<th>Ngày nhận phòng</th>
-										<th>Ngày trả phòng</th>
-										<th>Tổng tiền</th>
+										<th>Thời gian nhận phòng</th>
+										<th>Thời gian dự kiến trả phòng</th>
 										<th>Trạng thái</th>
 									</tr>
 								</thead>
@@ -41,7 +40,6 @@
 											<td>${phieuThuePhong.khachHang.hoVaTenDem}</td>
 											<td>${phieuThuePhong.ngayNhanPhong}</td>
 											<td>${phieuThuePhong.ngayTraPhong}</td>
-											<td>${phieuThuePhong.tongTien}</td>
 											<td>${phieuThuePhong.trangThai}</td>
 										</tr>
 									</c:forEach>
@@ -164,6 +162,11 @@
 			</div>
 		</div>
 	</div>
+
+
+
+
+
 </body>
 <style>
 /* CSS cho phần "Thanh toán" */

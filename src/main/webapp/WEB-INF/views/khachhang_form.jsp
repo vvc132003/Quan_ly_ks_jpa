@@ -23,7 +23,7 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="container w-50">
-					<h1 class="mt-5 mb-4 text-center">Add Dịch Vụ</h1>
+					<h1 class="mt-5 mb-4 text-center">Thêm khách hàng</h1>
 					<form:form action="addkhachhang" method="post" modelAttribute="khachHang">
 						<form:hidden path="maKhachHang" />
 						<div class="mb-3">

@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +19,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pxu.com.model.ThuePhong;
 import pxu.com.model.TraPhong;
+import pxu.com.repository.NhanVienRepository;
 import pxu.com.model.DichVu;
+import pxu.com.model.KhachHang;
 import pxu.com.model.NhanVien;
 import pxu.com.model.Phong;
 import pxu.com.model.ThueDichVu;
 import pxu.com.service.DichVuService;
+import pxu.com.service.KhachHangService;
 import pxu.com.service.NhanVienService;
 import pxu.com.service.RoomService;
 import pxu.com.service.ThueDichVuService;
@@ -49,6 +55,9 @@ public class RoomController {
 
 	@Autowired
 	private NhanVienService nhanVienService;
+
+	@Autowired
+	private KhachHangService khachHangService;
 
 	@Autowired
 	private TraPhongService traPhongService;
@@ -88,18 +97,47 @@ public class RoomController {
 //		return "homeee";
 //	}
 
+//	@PostMapping("/loginn")
+//	public String login(@RequestParam String taiKhoan, @RequestParam String matKhau, Model model, HttpSession session) {
+//		NhanVien nhanVien = nhanVienService.findBytaiKhoanAndPassword(taiKhoan);
+//		if (nhanVien != null && nhanVien.getMatKhau().equals(matKhau)) {
+//			session.setAttribute("loggedInUser", taiKhoan);
+//			session.setAttribute("fullName", nhanVien.getMaNhanVien());
+//			session.setAttribute("namee", nhanVien.getHoVaTenDem());
+//			session.setAttribute("image", nhanVien.getImage());
+//			return "redirect:/room/listroom";
+//		} else {
+//			return "login";
+//		}
+//	}
+
 	@PostMapping("/loginn")
-	public String login(@RequestParam String taiKhoan, @RequestParam String matKhau, Model model, HttpSession session) {
-		NhanVien nhanVien = nhanVienService.findBytaiKhoanAndPassword(taiKhoan);
-		if (nhanVien != null && nhanVien.getMatKhau().equals(matKhau)) {
+	public String processLogin(@RequestParam String taiKhoan, @RequestParam String matKhau, Model model,
+			HttpSession session) {
+		NhanVien nhanVien = nhanVienService.findBytaiKhoanAndPassword(taiKhoan, matKhau);
+		if (nhanVien == null) {
+			KhachHang khachHang = khachHangService.findByTenDangNhapAndMatKhau(taiKhoan, matKhau);
+			if (khachHang != null) {
+				return "redirect:/dichvu/listDichVu";
+			}
+		} else {
 			session.setAttribute("loggedInUser", taiKhoan);
 			session.setAttribute("fullName", nhanVien.getMaNhanVien());
 			session.setAttribute("namee", nhanVien.getHoVaTenDem());
 			session.setAttribute("image", nhanVien.getImage());
 			return "redirect:/room/listroom";
-		} else {
-			return "login";
 		}
+		model.addAttribute("error", true);
+		return "login";
+	}
+
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		return "redirect:/room/login";
 	}
 
 	@GetMapping("/rooms")
@@ -156,8 +194,8 @@ public class RoomController {
 	public String addtraphong(@ModelAttribute("traphong") TraPhong traPhong,
 			@RequestParam("maThuePhong") Long maThuePhong, @RequestParam("maPhong") Long maPhong,
 			@RequestParam("tongTien") BigDecimal tongTien, @RequestParam("maNhanVien") Long maNhanVien,
-			@RequestParam("giaTien") BigDecimal giaTien, @RequestParam("tienDatCoc") BigDecimal tienDatCoc,
-			Model model) {
+			@RequestParam("giaTien") BigDecimal giaTien, @RequestParam("tienDatCoc") BigDecimal tienDatCoc, Model model,
+			RedirectAttributes redirectAttributes) {
 		NhanVien nhanVien = nhanVienService.getNhanvienById(maNhanVien);
 		ThuePhong thuePhong = thuePhongService.getThuePhong(maThuePhong);
 		BigDecimal tongtienkhachhang = tongTien.add(giaTien).subtract(tienDatCoc);
@@ -168,6 +206,7 @@ public class RoomController {
 		thuePhongService.updatethuephong(maThuePhong, tongtienkhachhang);
 		traPhongService.traphong(traPhong);
 		roomService.updatesuachua(maPhong);
+		redirectAttributes.addFlashAttribute("paymentSuccessMessage", "Thanh toán thành công!");
 		return "redirect:/room/listroom";
 	}
 
@@ -222,12 +261,10 @@ public class RoomController {
 		return "redirect:/room/listroom";
 	}
 
-//	@GetMapping("/updatedangsuachua")
-//	public String updatedangsuachua(@RequestParam("roomId") Long roomId, Model model,
-//			@RequestParam("idthue") Long idthue) {
-//		roomService.updatesuachua(roomId);
-//		phieuThuePhongService.updatetrangthaithue(idthue);
-//		return "redirect:/room/listroom";
-//	}
+	@GetMapping("/updatedangsuachua")
+	public String updatedangsuachua(@RequestParam("maPhong") Long roomId, Model model) {
+		roomService.updatedangsuachua(roomId);
+		return "redirect:/room/listroom";
+	}
 
 }

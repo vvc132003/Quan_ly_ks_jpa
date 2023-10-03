@@ -25,20 +25,23 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 	void updatesuachua(@Param("maPhong") Long maPhong);
 
 	@Modifying
+	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'dang sua chua' WHERE r.maPhong = :maPhong")
+	void updatedangsuachua(@Param("maPhong") Long maPhong);
+
+	@Modifying
 	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'còn trống' WHERE r.maPhong = :maPhong")
 	void updatecontrong(@Param("maPhong") Long maPhong);
 //
 //	@Modifying
 //	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đã đặt' WHERE r.MaPhong = :roomId")
 //	void updatedadat(@Param("roomId") Long roomId);
-	
-	
-    Phong findByMaPhong(Long maPhong);
-    
-    @Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'có khách'")
-    long countPhongDangThue();
 
-    @Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'còn trống'")
-    long countPhongTrong();
+	Phong findByMaPhong(Long maPhong);
+
+	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'có khách'")
+	long countPhongDangThue();
+
+	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'còn trống'")
+	long countPhongTrong();
 
 }

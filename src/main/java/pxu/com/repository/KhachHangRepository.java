@@ -10,4 +10,7 @@ import pxu.com.model.KhachHang;
 public interface KhachHangRepository extends JpaRepository<KhachHang, Long> {
 	@Query("SELECT k FROM KhachHang k ORDER BY k.maKhachHang DESC")
 	KhachHang findLastKhachHangWithLimit();
+
+    KhachHang findByTaiKhoanAndMatKhau(String taiKhoan, String matKhau);
+
 }

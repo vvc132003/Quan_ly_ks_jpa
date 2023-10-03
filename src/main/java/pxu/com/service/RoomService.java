@@ -43,6 +43,11 @@ public class RoomService {
 	}
 
 	@Transactional
+	public void updatedangsuachua(Long roomId) {
+		roomRepository.updatedangsuachua(roomId);
+	}
+
+	@Transactional
 	public void updatecontrong(Long maPhong) {
 		roomRepository.updatecontrong(maPhong);
 	}

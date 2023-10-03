@@ -70,8 +70,8 @@
 
 			<li><a href="charts.html"><i
 					class="fa fa-bar-chart-o green_color"></i> <span>Thống kê</span></a></li>
-			<li><a href="settings.html"><i
-					class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+			<li><a href="${pageContext.request.contextPath}/room/logout"><i
+					class="fa fa-cog yellow_color"></i> <span>Logout</span></a></li>
 		</ul>
 	</div>
 </nav>
