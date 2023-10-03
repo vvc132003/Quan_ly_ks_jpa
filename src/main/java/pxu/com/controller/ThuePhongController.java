@@ -1,6 +1,8 @@
 package pxu.com.controller;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -54,7 +56,11 @@ public class ThuePhongController {
 	public String luuThuePhong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
 			@RequestParam("phong.maPhong") Long maPhong, Model model) {
 		thuePhong.setNgayNhanPhong(new Date());
-		thuePhong.setNgayTraPhong(new Date());
+//		thuePhong.setNgayTraPhong(new Date());
+		LocalDateTime now = LocalDateTime.now();
+		LocalDateTime ngayTraPhong = now.plus(1, ChronoUnit.HOURS);
+		Date dateNgayTraPhong = java.sql.Timestamp.valueOf(ngayTraPhong);
+		thuePhong.setNgayTraPhong(dateNgayTraPhong);
 		thuePhong.setTrangThai("Đang thuê");
 		BigDecimal tongtiennn = new BigDecimal("0");
 		thuePhong.setTongTien(tongtiennn);

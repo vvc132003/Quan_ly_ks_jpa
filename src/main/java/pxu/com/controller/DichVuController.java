@@ -36,7 +36,7 @@ public class DichVuController {
 		return "dichvu_form";
 	}
 
-	@PostMapping("/addDichVu")
+	@PostMapping(value = "/addDichVu", produces = "text/plain;charset=UTF-8")
 	public String addDichVu(@ModelAttribute("dichVu") DichVu dichVu) {
 		dichVuService.saveDichVu(dichVu);
 		return "redirect:/dichvu/listDichVu";
@@ -60,7 +60,7 @@ public class DichVuController {
 		dichVuService.updateDichVu(dichVu.getMaDichVu(), dichVu);
 		return "redirect:/dichvu/listDichVu";
 	}
-	
+
 //	@GetMapping("/thongke")
 //    public String thongKe(Model model) {
 //        List<Object[]> thongKeData = dichVuService.thongKeDichVuDuocThueNhieuNhat();

@@ -73,9 +73,11 @@
 											<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
 												<td><a
 													href="deleteThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
-													class="btn btn-danger">-1</a> <a
+													class="btn btn-danger"> <i class="fas fa-minus"></i>
+												</a> <a
 													href="updateThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
-													class="btn btn-warning">+1</a></td>
+													class="btn btn-warning"> <i class="fas fa-plus"></i>
+												</a></td>
 											</c:forEach>
 										</tr>
 									</c:forEach>

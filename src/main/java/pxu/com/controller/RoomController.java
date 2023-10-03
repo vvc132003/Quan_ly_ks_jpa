@@ -242,6 +242,9 @@ public class RoomController {
 				if (currentSoLuong - 1 == 0) {
 					thueDichVuService.deleteThueDichVu(thueDichVu.getMaThueDichVu());
 				} else {
+					BigDecimal gia = thueDichVu.getDichVu().getGia();
+					BigDecimal thanhTien = gia.multiply(BigDecimal.valueOf(thueDichVu.getSoLuong()));
+					thueDichVu.setThanhTien(thanhTien);
 					thueDichVuService.updateThueDichVu(thueDichVu.getMaThueDichVu(), thueDichVu);
 				}
 			}

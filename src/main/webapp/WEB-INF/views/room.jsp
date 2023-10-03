@@ -87,28 +87,39 @@
 						<div class="context-menu">
 							<c:choose>
 								<c:when test="${room.tinhTrangPhong eq 'có khách'}">
-									<a href="rooms?roomId=${room.maPhong}">Thông tin thuê phòng</a>
+									<a href="rooms?roomId=${room.maPhong}"> <i
+										class="fas fa-info-circle"
+										style="color: red; font-size: 20px; margin-right: 5px;"></i>
+										Thông tin thuê phòng
+									</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
 									<a
-										href="${pageContext.request.contextPath}/thuephong/thuephong?idPhong=${room.maPhong}">Thuê
-										phòng</a>
-									<a href="updatedangsuachua?maPhong=${room.maPhong}">Sửa
-										phòng</a>
+										href="${pageContext.request.contextPath}/thuephong/thuephong?idPhong=${room.maPhong}"><i
+										style="font-size: 20px; margin-right: 10px" class="fas fa-bed"></i>
+										Thuê phòng</a>
+									<a href="updatedangsuachua?maPhong=${room.maPhong}"><i
+										style="font-size: 20px; margin-right: 14px"
+										class="fas fa-wrench"></i> Sửa phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 									<a href="" data-bs-toggle="modal" data-bs-target="#addModall"
-										class="rent-room-link" data-room-id="${room.maPhong}">Check
-										nhận phòng</a>
+										class="rent-room-link" data-room-id="${room.maPhong}"><i
+										style="font-size: 20px; margin-right: 14px"
+										class="fas fa-check-circle"></i>Check nhận phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
-									<a href="updatecontrong?maPhong=${room.maPhong}">Hoàn tất
-										sửa chữa</a>
+									<a href="updatecontrong?maPhong=${room.maPhong}"><i
+										style="font-size: 20px; margin-right: 2px; color: blue;"
+										class="fas fa-check"></i>Hoàn tất sửa chữa</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
-									<a href="updatecontrong?maPhong=${room.maPhong}">Dọn xong</a>
-									<a href="updatedangsuachua?maPhong=${room.maPhong}">Sửa
-										phòng</a>
+									<a href="updatecontrong?maPhong=${room.maPhong}"><i
+										style="font-size: 20px; margin-right: 10px; color: blue;"
+										class="fas fa-check"></i>Dọn xong</a>
+									<a href="updatedangsuachua?maPhong=${room.maPhong}"><i
+										style="font-size: 20px; margin-right: 10px"
+										class="fas fa-wrench"></i> Sửa phòng</a>
 								</c:when>
 							</c:choose>
 						</div>

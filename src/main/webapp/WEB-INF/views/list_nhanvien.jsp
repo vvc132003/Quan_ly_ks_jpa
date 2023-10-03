@@ -21,7 +21,7 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="container">
-					<h1 class="mt-5 mb-4 text-center">Danh sách Khách Hàng</h1>
+					<h1 class="mt-5 mb-4 text-center">Danh sách nhân viên</h1>
 					<a
 						href="${pageContext.request.contextPath}/khachhang/khachhangform"
 						class="btn btn-primary mb-4">Thêm nhân viên</a>
@@ -47,9 +47,13 @@
 										<td>${khoahoc.taiKhoan}</td>
 										<td>${khoahoc.matKhau}</td>
 										<td>${khoahoc.chucVu}</td>
-										<td><a
-											href="deletekhachhang?khachhangid=${khoahoc.maNhanVien}">Delete</a>
-											<a href="updateDichVu?dichvuID=${khoahoc.maNhanVien}">Update</a></td>
+										<td><a class="btn btn-danger"
+											href="deletekhachhang?khachhangid=${khoahoc.maNhanVien}">
+												<i class="fas fa-trash-alt"></i>
+										</a> <a class="btn btn-warning"
+											href="updateDichVu?dichvuID=${khoahoc.maNhanVien}"> <i
+												class="fas fa-edit"></i>
+										</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

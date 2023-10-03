@@ -45,9 +45,12 @@
 										<td>${khoahoc.soDienThoai}</td>
 										<td>${khoahoc.diaChi}</td>
 										<td>${khoahoc.email}</td>
-										<td><a
-											href="deletekhachhang?khachhangid=${khoahoc.maKhachHang}">Delete</a>
-											<a href="updateDichVu?dichvuID=${khoahoc.maKhachHang}">Update</a></td>
+										<td><a class="btn btn-danger"
+											href="deletekhachhang?khachhangid=${khoahoc.maKhachHang}">
+												<i class="fas fa-trash-alt"></i>
+										</a> <a class="btn btn-warning"
+											href="updateDichVu?dichvuID=${khoahoc.maKhachHang}"><i
+												class="fas fa-edit"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

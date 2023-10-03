@@ -6,7 +6,7 @@
 		<div class="sidebar-header">
 			<div class="logo_section">
 				<a href="index.html"><img class="logo_icon img-responsive"
-					src="images/logo/logo_icon.png" alt="#" /></a>
+					src="<c:out value="${image}" />" alt="#" /></a>
 			</div>
 		</div>
 		<div class="sidebar_user_info">

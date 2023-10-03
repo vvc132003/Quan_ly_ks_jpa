@@ -45,8 +45,12 @@
 										<td>${khoahoc.gia}</td>
 										<td><img class="small-image" src="${khoahoc.image}"
 											alt="Ảnh dịch vụ"></td>
-										<td><a href="deleteDichVu?dichvuID=${khoahoc.maDichVu}">Delete</a>
-											<a href="updateDichVu?dichvuID=${khoahoc.maDichVu}">Update</a></td>
+										<td><a class="btn btn-danger"
+											href="deleteDichVu?dichvuID=${khoahoc.maDichVu}"> <i
+												class="fas fa-trash-alt"></i>
+										</a> <a class="btn btn-warning"
+											href="updateDichVu?dichvuID=${khoahoc.maDichVu}"><i
+												class="fas fa-edit"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
