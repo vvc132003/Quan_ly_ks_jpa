@@ -27,7 +27,17 @@ public class RoomService {
 	}
 
 	@Transactional
+	public void updatedadat(Long maPhong) {
+		roomRepository.updatedadat(maPhong);
+	}
+
+	@Transactional
 	public Phong findRoomByMaPhong(Long maPhong) {
+		return roomRepository.findByMaPhong(maPhong);
+	}
+
+	@Transactional
+	public Phong getPhongByMaPhong(Long maPhong) {
 		return roomRepository.findByMaPhong(maPhong);
 	}
 
@@ -71,10 +81,12 @@ public class RoomService {
 	public long countPhongTrong() {
 		return roomRepository.countPhongTrong();
 	}
+
 	@Transactional
 	public long countPhongDangSuaChua() {
 		return roomRepository.countPhongDangSuaChua();
 	}
+
 	@Transactional
 	public long countPhongDangChuaDon() {
 		return roomRepository.countPhongDangChuaDon();

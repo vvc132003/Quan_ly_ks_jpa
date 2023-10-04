@@ -115,6 +115,12 @@ public class RoomController {
 //			return "login";
 //		}
 //	}
+	@GetMapping("/home")
+	public String home(Model model) {
+		List<Phong> rooms = roomService.getRooms();
+		model.addAttribute("rooms", rooms);
+		return "home";
+	}
 
 	@PostMapping("/loginn")
 	public String processLogin(@RequestParam String taiKhoan, @RequestParam String matKhau, Model model,
@@ -123,7 +129,7 @@ public class RoomController {
 		if (nhanVien == null) {
 			KhachHang khachHang = khachHangService.findByTenDangNhapAndMatKhau(taiKhoan, matKhau);
 			if (khachHang != null) {
-				return "redirect:/dichvu/listDichVu";
+				return "redirect:/room/home";
 			}
 		} else {
 			session.setAttribute("loggedInUser", taiKhoan);

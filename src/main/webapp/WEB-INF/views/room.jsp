@@ -111,8 +111,8 @@
 										class="fas fa-wrench"></i> Sửa phòng</a>
 								</c:when>
 								<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
-									<a href="" data-bs-toggle="modal" data-bs-target="#addModall"
-										class="rent-room-link" data-room-id="${room.maPhong}"><i
+									<a
+										href="${pageContext.request.contextPath}/thuephong/thongtinndatphong?roomId=${room.maPhong}"><i
 										style="font-size: 20px; margin-right: 14px"
 										class="fas fa-check-circle"></i>Check nhận phòng</a>
 								</c:when>
@@ -252,7 +252,7 @@ p {
 <style>
 /* CSS cho container bao quanh biểu mẫu */
 .search-container {
-	padding: 20px 15px;
+	padding: 10px 5px;
 	background-color: #f5f5f5;
 	border: 1px solid #ddd;
 	border-radius: 5px;

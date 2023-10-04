@@ -21,6 +21,7 @@ import pxu.com.model.DichVu;
 import pxu.com.model.KhachHang;
 import pxu.com.model.NhanVien;
 import pxu.com.model.Phong;
+import pxu.com.model.ThueDichVu;
 import pxu.com.model.ThuePhong;
 import pxu.com.service.KhachHangService;
 import pxu.com.service.RoomService;
@@ -42,15 +43,39 @@ public class ThuePhongController {
 	@GetMapping("/thuephong")
 	public String thuePhongForm(@RequestParam("idPhong") Long idPhong, Model model) {
 		Optional<Phong> phongOptional = roomService.getphong(idPhong);
-//		List<KhachHang> listHangs = khachHangService.getkhachhang();
 		if (phongOptional.isPresent()) {
 			Phong phong = phongOptional.get();
 			ThuePhong thuePhong = new ThuePhong();
 			thuePhong.setPhong(phong);
 			model.addAttribute("thuePhong", thuePhong);
-//			model.addAttribute("listHangs", listHangs);
 		}
 		return "thuephong_form";
+	}
+
+	@GetMapping("/datphong")
+	public String datphong(@RequestParam("idPhong") Long idPhong, Model model) {
+		Optional<Phong> phongOptional = roomService.getphong(idPhong);
+		if (phongOptional.isPresent()) {
+			Phong phong = phongOptional.get();
+			ThuePhong thuePhong = new ThuePhong();
+			thuePhong.setPhong(phong);
+			model.addAttribute("thuePhong", thuePhong);
+		}
+		return "datphong";
+	}
+
+	@GetMapping("/thongtinndatphong")
+	public String getPhieuThuePhongByRoomId(@RequestParam("roomId") Long roomId, Model model) {
+		// Retrieve room reservation data by roomId
+		List<ThuePhong> thuePhongList = thuePhongService.findAllByMaPhongAndTrangThaiDadat(roomId);
+		for (ThuePhong thuePhong : thuePhongList) {
+			KhachHang khachHang = khachHangService.getKhachHangByMaKhachHang(thuePhong.getKhachHang().getMaKhachHang());
+			Phong phong = roomService.getPhongByMaPhong(thuePhong.getPhong().getMaPhong());
+			thuePhong.setKhachHang(khachHang);
+			thuePhong.setPhong(phong);
+		}
+		model.addAttribute("thuePhongList", thuePhongList);
+		return "nhanphong";
 	}
 
 //	@PostMapping("/addthuephong")
@@ -93,6 +118,30 @@ public class ThuePhongController {
 		roomService.updattrangthaiphong(maPhong);
 		redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
 		return "redirect:/room/listroom";
+	}
+
+	@PostMapping("/adddatphongphong")
+	public String adddatphongphong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
+			@RequestParam("phong.maPhong") Long maPhong, Model model, RedirectAttributes redirectAttributes) {
+		KhachHang khachHang = khachHangService.savekhachhang1(thuePhong.getKhachHang());
+		// Lấy mã khách hàng sau khi tạo
+		Long maKhachHang = khachHang.getMaKhachHang();
+		// Gán mã khách hàng vào đối tượng ThuePhong
+		thuePhong.getKhachHang().setMaKhachHang(maKhachHang);
+		thuePhong.setNgayNhanPhong(new Date());
+//		thuePhong.setNgayTraPhong(new Date());
+		LocalDateTime now = LocalDateTime.now();
+		LocalDateTime ngayTraPhong = now.plus(1, ChronoUnit.HOURS);
+		Date dateNgayTraPhong = java.sql.Timestamp.valueOf(ngayTraPhong);
+		thuePhong.setNgayTraPhong(dateNgayTraPhong);
+		thuePhong.setTrangThai("Đã đặt");
+		BigDecimal tongtiennn = new BigDecimal("0");
+		thuePhong.setTongTien(tongtiennn);
+		thuePhongService.thuePhong(thuePhong);
+//		thuePhongService.sendEmails();
+		roomService.updatedadat(maPhong);
+		redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
+		return "redirect:/room/home";
 	}
 
 }

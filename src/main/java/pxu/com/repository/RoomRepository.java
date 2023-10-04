@@ -31,10 +31,10 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 	@Modifying
 	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'còn trống' WHERE r.maPhong = :maPhong")
 	void updatecontrong(@Param("maPhong") Long maPhong);
-//
-//	@Modifying
-//	@Query("UPDATE phong r SET r.TinhTrangPhong = 'đã đặt' WHERE r.MaPhong = :roomId")
-//	void updatedadat(@Param("roomId") Long roomId);
+
+	@Modifying
+	@Query("UPDATE Phong r SET r.tinhTrangPhong = 'đã đặt' WHERE r.maPhong = :maPhong")
+	void updatedadat(@Param("maPhong") Long maPhong);
 
 	Phong findByMaPhong(Long maPhong);
 
@@ -49,5 +49,8 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 	
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'chưa dọn'")
 	long countPhongDangChuaDon();
+	
+	
+	
 
 }

@@ -36,8 +36,14 @@ public class ThuePhongService {
 		thuePhongRepository.save(thuePhong);
 	}
 
+	@Transactional
 	public List<ThuePhong> findAllByMaPhong(Long maPhong) {
 		return thuePhongRepository.findAllByMaPhongAndTrangThai(maPhong);
+	}
+
+	@Transactional
+	public List<ThuePhong> findAllByMaPhongAndTrangThaiDadat(Long maPhong) {
+		return thuePhongRepository.findAllByMaPhongAndTrangThaiDadat(maPhong);
 	}
 
 	@Transactional

@@ -41,6 +41,10 @@ public class KhachHangService {
 		return khachHangRepository.save(khachHang);
 	}
 
+	public KhachHang getKhachHangByMaKhachHang(Long maKhachHang) {
+		return khachHangRepository.findByMaKhachHang(maKhachHang);
+	}
+
 	@Transactional
 	public List<KhachHang> getkhachhang() {
 		return khachHangRepository.findAllOrderByCreatedAtDesc();
