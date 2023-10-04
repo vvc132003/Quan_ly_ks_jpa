@@ -20,6 +20,36 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="thuephongSuccessModal" tabindex="-1"
+		role="dialog" aria-labelledby="thuephongSuccessModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<p id="thuephongSuccessMessage">${thuephongSuccessMessage}</p>
+					<p>Thuê phòng thành công !!!</p>
+					<i class="fas fa-thumbs-up fa-5x" style="color: green;"></i>
+					<!-- Biểu tượng thành công -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	$(document).ready(function() {
+	    var thuephongSuccessMessage = "${thuephongSuccessMessage}";
+
+	    console.log("Debug: JavaScript executed."); // Add this line for debugging
+
+	    if (thuephongSuccessMessage !== "") {
+	        // Hiển thị modal và đặt nội dung thông báo
+	        $('#thuephongSuccessMessage').text(thuephongSuccessMessage);
+	        $('#thuephongSuccessModal').modal('show');
+	    }
+	});
+</script>
+
 	<div style="padding: 0px 15px;">
 		<div style="text-align: center">
 			<div class="square" style="background-color: #0099CC">
@@ -164,6 +194,10 @@
 }
 
 #paymentSuccessMessage {
+	color: green;
+}
+
+#thuephongSuccessMessage {
 	color: green;
 }
 

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pxu.com.model.DichVu;
 import pxu.com.model.KhachHang;
@@ -72,7 +73,7 @@ public class ThuePhongController {
 
 	@PostMapping("/addthuephong")
 	public String savethuephong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
-			@RequestParam("phong.maPhong") Long maPhong, Model model) {
+			@RequestParam("phong.maPhong") Long maPhong, Model model, RedirectAttributes redirectAttributes) {
 		KhachHang khachHang = khachHangService.savekhachhang1(thuePhong.getKhachHang());
 		// Lấy mã khách hàng sau khi tạo
 		Long maKhachHang = khachHang.getMaKhachHang();
@@ -90,6 +91,7 @@ public class ThuePhongController {
 		thuePhongService.thuePhong(thuePhong);
 //		thuePhongService.sendEmails();
 		roomService.updattrangthaiphong(maPhong);
+		redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
 		return "redirect:/room/listroom";
 	}
 
