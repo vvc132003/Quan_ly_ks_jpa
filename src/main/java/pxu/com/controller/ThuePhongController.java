@@ -41,20 +41,43 @@ public class ThuePhongController {
 	@GetMapping("/thuephong")
 	public String thuePhongForm(@RequestParam("idPhong") Long idPhong, Model model) {
 		Optional<Phong> phongOptional = roomService.getphong(idPhong);
-		List<KhachHang> listHangs = khachHangService.getkhachhang();
+//		List<KhachHang> listHangs = khachHangService.getkhachhang();
 		if (phongOptional.isPresent()) {
 			Phong phong = phongOptional.get();
 			ThuePhong thuePhong = new ThuePhong();
 			thuePhong.setPhong(phong);
 			model.addAttribute("thuePhong", thuePhong);
-			model.addAttribute("listHangs", listHangs);
+//			model.addAttribute("listHangs", listHangs);
 		}
 		return "thuephong_form";
 	}
 
+//	@PostMapping("/addthuephong")
+//	public String luuThuePhong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
+//			@RequestParam("phong.maPhong") Long maPhong, Model model) {
+//		thuePhong.setNgayNhanPhong(new Date());
+////		thuePhong.setNgayTraPhong(new Date());
+//		LocalDateTime now = LocalDateTime.now();
+//		LocalDateTime ngayTraPhong = now.plus(1, ChronoUnit.HOURS);
+//		Date dateNgayTraPhong = java.sql.Timestamp.valueOf(ngayTraPhong);
+//		thuePhong.setNgayTraPhong(dateNgayTraPhong);
+//		thuePhong.setTrangThai("Đang thuê");
+//		BigDecimal tongtiennn = new BigDecimal("0");
+//		thuePhong.setTongTien(tongtiennn);
+//		thuePhongService.thuePhong(thuePhong);
+////		thuePhongService.sendEmails();
+//		roomService.updattrangthaiphong(maPhong);
+//		return "redirect:/room/listroom";
+//	}
+
 	@PostMapping("/addthuephong")
-	public String luuThuePhong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
+	public String savethuephong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
 			@RequestParam("phong.maPhong") Long maPhong, Model model) {
+		KhachHang khachHang = khachHangService.savekhachhang1(thuePhong.getKhachHang());
+		// Lấy mã khách hàng sau khi tạo
+		Long maKhachHang = khachHang.getMaKhachHang();
+		// Gán mã khách hàng vào đối tượng ThuePhong
+		thuePhong.getKhachHang().setMaKhachHang(maKhachHang);
 		thuePhong.setNgayNhanPhong(new Date());
 //		thuePhong.setNgayTraPhong(new Date());
 		LocalDateTime now = LocalDateTime.now();
@@ -69,4 +92,5 @@ public class ThuePhongController {
 		roomService.updattrangthaiphong(maPhong);
 		return "redirect:/room/listroom";
 	}
+
 }

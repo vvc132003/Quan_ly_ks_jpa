@@ -236,10 +236,10 @@ public class RoomController {
 			@RequestParam("maPhong") Long maPhong) {
 		Optional<ThueDichVu> optionalThueDichVu = thueDichVuService.getThueDichVu(maThueDichVu);
 		optionalThueDichVu.ifPresent(thueDichVu -> {
-			int currentSoLuong = thueDichVu.getSoLuong();
-			if (currentSoLuong > 0) {
-				thueDichVu.setSoLuong(currentSoLuong - 1);
-				if (currentSoLuong - 1 == 0) {
+			int SoLuong = thueDichVu.getSoLuong();
+			if (SoLuong > 0) {
+				thueDichVu.setSoLuong(SoLuong - 1);
+				if (SoLuong - 1 == 0) {
 					thueDichVuService.deleteThueDichVu(thueDichVu.getMaThueDichVu());
 				} else {
 					BigDecimal gia = thueDichVu.getDichVu().getGia();

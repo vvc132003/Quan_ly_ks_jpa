@@ -30,13 +30,33 @@
 							<form:input type="hidden" path="phong.maPhong" id="maPhong"
 								class="form-control" required="required" />
 						</div>
-						<label for="">Khách hàng:</label>
+						<%-- <label for="">Khách hàng:</label>
 						<select class="form-control" id="khachHang"
 							name="khachHang.maKhachHang" required>
 							<c:forEach items="${listHangs}" var="listHang">
 								<option value="${listHang.maKhachHang}">${listHang.hoVaTenDem}</option>
 							</c:forEach>
-						</select>
+						</select> --%>
+						<div class="mb-3">
+							<form:label path="khachHang.hoVaTenDem" class="form-label">Tên khách hàng</form:label>
+							<form:input path="khachHang.hoVaTenDem" class="form-control" />
+							<form:errors path="khachHang.hoVaTenDem" class="text-danger" />
+						</div>
+						<div class="mb-3">
+							<form:label path="khachHang.soDienThoai" class="form-label">Số điện thoại:</form:label>
+							<form:input path="khachHang.soDienThoai" class="form-control" />
+							<form:errors path="khachHang.soDienThoai" class="text-danger" />
+						</div>
+						<div class="mb-3">
+							<form:label path="khachHang.diaChi" class="form-label">Địa chỉ:</form:label>
+							<form:input path="khachHang.diaChi" class="form-control" />
+							<form:errors path="khachHang.diaChi" class="text-danger" />
+						</div>
+						<div class="mb-3">
+							<form:label path="khachHang.email" class="form-label">Email:</form:label>
+							<form:input path="khachHang.email" class="form-control" />
+							<form:errors path="khachHang.email" class="text-danger" />
+						</div>
 						<div class="mb-3">
 							<form:input type="hidden" path="nhanVien.maNhanVien"
 								value="${fullName}" id="maNhanVien" class="form-control"

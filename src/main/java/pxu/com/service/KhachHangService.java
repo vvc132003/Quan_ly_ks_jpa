@@ -37,6 +37,11 @@ public class KhachHangService {
 	}
 
 	@Transactional
+	public KhachHang savekhachhang1(KhachHang khachHang) {
+		return khachHangRepository.save(khachHang);
+	}
+
+	@Transactional
 	public List<KhachHang> getkhachhang() {
 		return khachHangRepository.findAll();
 	}
