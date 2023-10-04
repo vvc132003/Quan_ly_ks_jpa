@@ -18,21 +18,21 @@
 				<div id="content">
 					<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 					<br>
-					<div style="text-align: center">
+					<div style="padding: 0px 23px;">
 						<div class="square" style="background-color: #0099CC">
-							<a>Còn trống</a>
+							<a>Phòng trống (${soPhongTrong})</a>
 						</div>
 						<div class="square" style="background-color: #009900">
-							<a>Có khách</a>
+							<a>Phòng đã có người ở (${soPhongDangThue})</a>
 						</div>
 						<div class="square" style="background-color: #660099">
-							<a>Khách đặt</a>
+							<a>Phòng có người đặt</a>
 						</div>
 						<div class="square" style="background-color: #990033">
-							<a>Đang sửa chữa</a>
+							<a>Phòng đang sửa chữa (${soPhongDangsuachua})</a>
 						</div>
 						<div class="square" style="background-color: #C0C0C0">
-							<a>Chưa dọn</a>
+							<a>Phòng đang dọn dẹp (${soPhongDangchuadon})</a>
 						</div>
 					</div>
 					<%@ include file="/WEB-INF/views/room.jsp"%>

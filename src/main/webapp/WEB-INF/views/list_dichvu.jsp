@@ -22,24 +22,28 @@
 				<br>
 				<div class="container">
 					<h1 class="mt-5 mb-4 text-center">Danh sách Dịch Vụ</h1>
-					<a href="${pageContext.request.contextPath}/dichvu/dichvuform"
-						class="btn btn-primary mb-4">Thêm dịch vụ</a>
+					<div class="d-flex justify-content-between">
+
+						<a href="${pageContext.request.contextPath}/dichvu/dichvuform"
+							class="btn btn-primary mb-4 ml-auto"><i class="fas fa-plus"></i>
+							Thêm mới</a>
+					</div>
 					<div class="table-container">
-						<table class="table table-striped">
+						<table class="table table-striped" id="productTable">
 							<thead>
 								<tr>
 									<th>ID</th>
 									<th>Tên dịch vụ</th>
 									<th>Mô tả</th>
 									<th>Gía bán</th>
-									<th>Image</th>
-									<th>Action</th>
+									<th>Ảnh</th>
+									<th>Hành động</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${dichVus}" var="khoahoc">
+								<c:forEach items="${dichVus}" var="khoahoc" varStatus="status">
 									<tr>
-										<td>${khoahoc.maDichVu}</td>
+										<td>${status.index + 1}</td>
 										<td>${khoahoc.tenDichVu}</td>
 										<td>${khoahoc.moTa}</td>
 										<td>${khoahoc.gia}</td>
@@ -62,8 +66,8 @@
 	</div>
 	<style>
 .small-image {
-	width: 100px;
-	height: auto;
+	width: 50px;
+	height: 50px;
 }
 
 .table-container {
@@ -73,6 +77,8 @@
 
 .table thead th {
 	text-align: center;
+	background-color: #999999;
+	color: white;
 }
 
 .table {
@@ -80,18 +86,20 @@
 	border-collapse: collapse;
 }
 
-.table thead th {
-	border: 1px solid #000;
-}
-
-.table tbody td {
-	border: 1px solid #ccc;
+.table th, .table td {
+	border: 1px solid #ccc; /
+	padding: 8px;
 }
 </style>
+
 	<!-- Add Bootstrap JavaScript and Popper.js via CDN (required for some Bootstrap features) -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
 </body>
 </html>

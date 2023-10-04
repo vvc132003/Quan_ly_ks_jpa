@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import pxu.com.model.DichVu;
+import pxu.com.model.KhachHang;
 import pxu.com.model.Phong;
 
 @Repository("dichVuRepository")
@@ -18,4 +19,7 @@ public interface DichVuRepository extends JpaRepository<DichVu, Long> {
 //			+ "GROUP BY d.tenDichVu " + "ORDER BY SUM(td.soLuong) DESC")
 //	List<Object[]> thongKeDichVuDuocThueNhieuNhat();
 
+	
+	@Query("SELECT kh FROM DichVu kh ORDER BY kh.maDichVu DESC")
+	List<DichVu> findAllOrderByCreatedAtDesc();
 }

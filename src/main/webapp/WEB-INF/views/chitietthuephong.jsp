@@ -59,7 +59,7 @@
 										<th>Số lượng</th>
 										<th>Tên dịch vụ</th>
 										<th>Thành tiền</th>
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -230,21 +230,17 @@
 	font-size: 20px;
 }
 
-.custom-form {
-	/* Thêm các thuộc tính CSS tùy chỉnh cho form */
-	
-}
-
 .custom-button {
-	background-color: #007BFF; /* Màu nền của nút */
-	color: #fff; /* Màu chữ của nút */
-	padding: 2px 4px; /* Khoảng cách bên trong nút */
-	border: none; /* Loại bỏ viền nút */
-	cursor: pointer; /* Thay đổi hình dạng con trỏ khi di chuột vào nút */
+	background-color: #00CC00;
+	color: #fff;
+	padding: 5px 5px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
 }
 
 .custom-button:hover {
-	background-color: #0056b3; /* Màu nền khi di chuột vào nút */
+	background-color: #00BB00;
 }
 </style>
 </html>

@@ -43,7 +43,7 @@ public class KhachHangService {
 
 	@Transactional
 	public List<KhachHang> getkhachhang() {
-		return khachHangRepository.findAll();
+		return khachHangRepository.findAllOrderByCreatedAtDesc();
 	}
 
 	@Transactional

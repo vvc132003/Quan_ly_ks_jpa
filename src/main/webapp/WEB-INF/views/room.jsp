@@ -36,30 +36,8 @@
 		</div>
 	</div>
 
-	<script>
-	$(document).ready(function() {
-	    var thuephongSuccessMessage = "${thuephongSuccessMessage}";
-
-	    console.log("Debug: JavaScript executed."); // Add this line for debugging
-
-	    if (thuephongSuccessMessage !== "") {
-	        // Hiển thị modal và đặt nội dung thông báo
-	        $('#thuephongSuccessMessage').text(thuephongSuccessMessage);
-	        $('#thuephongSuccessModal').modal('show');
-	    }
-	});
-</script>
 
 	<div style="padding: 0px 15px;">
-		<div style="text-align: center">
-			<div class="square" style="background-color: #0099CC">
-				<a>Còn trống ${soPhongTrong} phòng</a>
-			</div>
-
-			<div class="square" style="background-color: #009900">
-				<a>Có khách ${soPhongDangThue} phòng</a>
-			</div>
-		</div>
 		<form style="padding: 20px 15px;" action="listroom" method="GET">
 			<label for="maPhong">Tìm kiếm phòng:</label> <input type="text"
 				id="maPhong" name="maPhong"> <input type="submit"
@@ -76,7 +54,7 @@
 							<c:when test="${room.tinhTrangPhong eq 'còn trống'}">
                 controng
             </c:when>
-							<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
+							<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
                 dangsua
             </c:when>
 							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
@@ -104,7 +82,7 @@
 							<c:when test="${room.tinhTrangPhong eq 'đã đặt'}">
 								<i class="fas fa-calendar-check" style="color: white;"></i>
 							</c:when>
-							<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
+							<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
 								<i class="fas fa-wrench" style="color: white;"></i>
 							</c:when>
 							<c:when test="${room.tinhTrangPhong eq 'chưa dọn'}">
@@ -138,7 +116,7 @@
 										style="font-size: 20px; margin-right: 14px"
 										class="fas fa-check-circle"></i>Check nhận phòng</a>
 								</c:when>
-								<c:when test="${room.tinhTrangPhong eq 'dang sua chua'}">
+								<c:when test="${room.tinhTrangPhong eq 'đang sửa chữa'}">
 									<a href="updatecontrong?maPhong=${room.maPhong}"><i
 										style="font-size: 20px; margin-right: 2px; color: blue;"
 										class="fas fa-check"></i>Hoàn tất sửa chữa</a>
@@ -324,7 +302,19 @@ input[type="submit"]:hover {
         }
     });
 </script>
+<script>
+	$(document).ready(function() {
+	    var thuephongSuccessMessage = "${thuephongSuccessMessage}";
 
+	    console.log("Debug: JavaScript executed."); // Add this line for debugging
+
+	    if (thuephongSuccessMessage !== "") {
+	        // Hiển thị modal và đặt nội dung thông báo
+	        $('#thuephongSuccessMessage').text(thuephongSuccessMessage);
+	        $('#thuephongSuccessModal').modal('show');
+	    }
+	});
+</script>
 <script type="text/javascript">
 //JavaScript to handle opening the modal and populating the room ID
 const modal = document.getElementById('roomModal');

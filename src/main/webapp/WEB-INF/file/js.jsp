@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <script src="<c:url value='/resources/js/jquery.min.js' />"></script>
 <script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 <script
@@ -12,3 +14,23 @@
 	});
 </script>
 <script src="<c:url value='/resources/js/custom.js' />"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var table = $('#productTable').DataTable({
+			"pagingType" : "simple_numbers",
+			"language" : {
+				"paginate" : {
+					"next" : '<i class="fas fa-chevron-right"></i>',
+					"previous" : '<i class="fas fa-chevron-left"></i>'
+				},
+				"info" : "",
+				"lengthMenu" : "",
+				"search" : "Tìm kiếm:",
+				"emptyTable" : "Không có dữ liệu phù hợp"
+			}
+		});
+	});
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>

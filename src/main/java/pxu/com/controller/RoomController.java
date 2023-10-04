@@ -84,9 +84,14 @@ public class RoomController {
 		}
 		long soPhongDangThue = roomService.countPhongDangThue();
 		long soPhongTrong = roomService.countPhongTrong();
+		long soPhongDangsuachua = roomService.countPhongDangSuaChua();
+		long soPhongDangchuadon = roomService.countPhongDangChuaDon();
 		theModel.addAttribute("rooms", phongs);
 		theModel.addAttribute("soPhongDangThue", soPhongDangThue);
 		theModel.addAttribute("soPhongTrong", soPhongTrong);
+		theModel.addAttribute("soPhongDangsuachua", soPhongDangsuachua);
+		theModel.addAttribute("soPhongDangchuadon", soPhongDangchuadon);
+
 		return "homeee";
 	}
 

@@ -22,11 +22,15 @@
 				<br>
 				<div class="container">
 					<h1 class="mt-5 mb-4 text-center">Danh sách Khách Hàng</h1>
-					<a
-						href="${pageContext.request.contextPath}/khachhang/khachhangform"
-						class="btn btn-primary mb-4">Thêm khách hàng</a>
+					<div class="d-flex justify-content-between">
+						<a
+							href="${pageContext.request.contextPath}/khachhang/khachhangform"
+							class="btn btn-primary mb-4 ml-auto"> <i class="fas fa-plus"></i>
+							Thêm mới
+						</a>
+					</div>
 					<div class="table-container">
-						<table class="table table-striped">
+						<table class="table table-striped" id="productTable">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -34,13 +38,14 @@
 									<th>Số điện thoại</th>
 									<th>Địa chỉ</th>
 									<th>Email</th>
-									<th>Action</th>
+									<th>Hành động</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${khachHangs}" var="khoahoc">
+								<c:forEach items="${khachHangs}" var="khoahoc"
+									varStatus="status">
 									<tr>
-										<td>${khoahoc.maKhachHang}</td>
+										<td>${status.index + 1}</td>
 										<td>${khoahoc.hoVaTenDem}</td>
 										<td>${khoahoc.soDienThoai}</td>
 										<td>${khoahoc.diaChi}</td>
@@ -73,6 +78,8 @@
 
 .table thead th {
 	text-align: center;
+	background-color: #999999;
+	color: white;
 }
 
 .table {
@@ -80,12 +87,9 @@
 	border-collapse: collapse;
 }
 
-.table thead th {
-	border: 1px solid #000;
-}
-
-.table tbody td {
-	border: 1px solid #ccc;
+.table th, .table td {
+	border: 1px solid #ccc; /* Đường viền 1px màu xám cho các ô */
+	padding: 8px; /* Khoảng cách bên trong ô */
 }
 </style>
 	<!-- Add Bootstrap JavaScript and Popper.js via CDN (required for some Bootstrap features) -->

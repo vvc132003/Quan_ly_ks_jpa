@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	<div class="sidebar_blog_2">
-		<h4>General</h4>
+		<h4>Trang chủ</h4>
 		<ul class="list-unstyled components">
 			<li class="active"><a href="#dashboard" data-toggle="collapse"
 				aria-expanded="false" class="dropdown-toggle"><i

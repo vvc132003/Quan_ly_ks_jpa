@@ -19,7 +19,7 @@ public class DichVuService {
 
 	@Transactional
 	public List<DichVu> getDichVus() {
-		return dichVuRepository.findAll();
+		return dichVuRepository.findAllOrderByCreatedAtDesc();
 	}
 
 	@Transactional
