@@ -16,8 +16,8 @@
 	href="<c:url value='/resources/css/responsive.css' />" />
 </head>
 <body>
-	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
-	<div style="padding: 0px 500px;">
+<%-- 	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
+ --%>	<div style="padding: 0px 500px;">
 		<form:form action="adddatphongphong" method="POST"
 			modelAttribute="thuePhong">
 			<div class="mb-3">

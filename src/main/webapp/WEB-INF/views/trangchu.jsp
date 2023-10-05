@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
+		<%-- <%@ include file="/WEB-INF/layout/headerhome.jsp"%>
 	<br>
-	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%>
+	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%> --%>
 </body>
 </html>	

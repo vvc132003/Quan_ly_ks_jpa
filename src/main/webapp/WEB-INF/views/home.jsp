@@ -40,8 +40,8 @@
 	crossorigin="anonymous">
 </head>
 <body id="main-homepage">
-	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
-	<br>
+<%-- 	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
+ --%>	<br>
 	<%-- 	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%>
  --%>
 </body>

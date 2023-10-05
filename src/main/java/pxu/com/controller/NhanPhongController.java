@@ -23,4 +23,5 @@ public class NhanPhongController {
 		model.addAttribute("nhanPhongs", nhanPhongs);
 		return "list_nhanphong";
 	}
+	
 }

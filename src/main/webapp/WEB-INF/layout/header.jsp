@@ -28,20 +28,8 @@
 		</div>
 	</div>
 	<div class="sidebar_blog_2">
-		<h4>
-			<i class="fas fa-home text-primary"></i> Trang chủ
-		</h4>
+		<h4>Trang chủ</h4>
 		<ul class="list-unstyled components">
-			<%-- <li class="active"><a href="#dashboard" data-toggle="collapse"
-				aria-expanded="false" class="dropdown-toggle"><i
-					class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
-				<ul class="collapse list-unstyled" id="dashboard">
-					<li><a href="${pageContext.request.contextPath}/room/listroom">>
-							<span>Dashboard</span>
-					</a></li>
-					<li><a href="dashboard_2.html">> <span>Dashboard
-								style 2</span></a></li>
-				</ul></li> --%>
 			<!-- nhân viên  -->
 			<li><a href="${pageContext.request.contextPath}/room/listroom"><i
 					class="fas fa-bed orange_color"></i> <span>Phòng</span></a></li>
@@ -89,10 +77,10 @@
 						Xuất</span></a></li>
 		</ul>
 	</div>
-</nav>
-<style>
+	<style>
 span {
-	color: white;
 	font-weight: 600;
+	color: white;
 }
 </style>
+</nav>
