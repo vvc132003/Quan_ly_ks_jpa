@@ -31,5 +31,10 @@ public interface ThuePhongRepository extends JpaRepository<ThuePhong, Long> {
 
 	@Query("SELECT MONTH(tp.ngayNhanPhong) AS thang, SUM(tp.tongTien) AS doanhThu FROM ThuePhong tp GROUP BY thang")
 	List<Object[]> thongKeDoanhThuTheoThang();
+	
+	
+	@Modifying
+	@Query("UPDATE ThuePhong tp SET tp.trangThai = 'Đang thuê' WHERE tp.maThuePhong = :maThuePhong")
+	void updateTrangThai(@Param("maThuePhong") Long maThuePhong);
 
 }

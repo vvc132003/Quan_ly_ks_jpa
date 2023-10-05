@@ -68,6 +68,11 @@ public class RoomService {
 	}
 
 	@Transactional
+	public List<Phong> findAllPhongConTrong() {
+		return roomRepository.findAllPhongConTrong();
+	}
+
+	@Transactional
 	public Optional<Phong> getphong(Long id) {
 		return roomRepository.findById(id);
 	}
@@ -76,7 +81,7 @@ public class RoomService {
 	public long countPhongDangThue() {
 		return roomRepository.countPhongDangThue();
 	}
-	
+
 	@Transactional
 	public long countPhongDaDat() {
 		return roomRepository.countPhongDaDat();

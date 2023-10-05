@@ -60,6 +60,11 @@ public class ThuePhongService {
 	public void updatethuephong(Long maThuePhong, BigDecimal tongTien) {
 		thuePhongRepository.updateTrangThaiAndTongTien(tongTien, maThuePhong);
 	}
+	
+	@Transactional
+	public void updateTrangThai(Long maThuePhong) {
+		thuePhongRepository.updateTrangThai(maThuePhong);
+	}
 
 	@Transactional
 	public ThuePhong getThuePhong(Long maThuePhong) {

@@ -118,7 +118,7 @@ public class RoomController {
 //	}
 	@GetMapping("/home")
 	public String home(Model model) {
-		List<Phong> rooms = roomService.getRooms();
+		List<Phong> rooms = roomService.findAllPhongConTrong();
 		NhanVien nhanVien = new NhanVien();
 		model.addAttribute("rooms", rooms);
 		model.addAttribute("nhanVien", nhanVien);

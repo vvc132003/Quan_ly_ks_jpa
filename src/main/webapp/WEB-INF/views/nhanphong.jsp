@@ -25,38 +25,36 @@
 				<div class="container w-50">
 					<h1 class="mt-5 mb-4 text-center">Thuê Phòng</h1>
 					<c:forEach items="${thuePhongList}" var="thuePhong">
-						<tr>
+						<%-- <tr>
 							<td>${thuePhong.phong.maPhong}</td>
 							<td>${thuePhong.maThuePhong}</td>
 							<td>${thuePhong.khachHang.hoVaTenDem}
 							<td>${thuePhong.ngayNhanPhong}</td>
 							<td>${thuePhong.ngayTraPhong}</td>
 							<td>${thuePhong.trangThai}</td>
-							<td>
-								<form action="addnhanphong" method="POST">
-									<input type="" name="maThuePhong"
-										value="${thuePhong.maThuePhong}">
-									<div class="form-group">
-										<label for="roomId">Mã Phòng:</label> <input type="text"
-											id="roomId" name="roomId" value="${thuePhong.phong.maPhong}"
-											readonly>
-									</div>
-									<div class="form-group">
-										<label for="roomId">Khách hàng:</label> <input type="text"
-											id="roomId" name="roomId"
-											value="${thuePhong.khachHang.maKhachHang}" readonly>
-									</div>
-									<div class="form-group">
-										<label for="tienDatCoc">Tiền đặt cọc:</label> <input
-											type="text" id="tienDatCoc" name="tienDatCoc"
-											value="${thuePhong.tienDatCoc}" class="form-control" required>
-									</div>
-									<div class="form-group">
-										<input type="submit" value="Nhận phòng" class="btn-primary">
-									</div>
-								</form>
-							</td>
-						</tr>
+							<td> --%>
+						<form
+							action="${pageContext.request.contextPath}/nhanphong/addnhanphong"
+							method="POST">
+							<input type="hidden" name="maThuePhong"
+								value="${thuePhong.maThuePhong}">
+							<div class="form-group">
+								<label for="roomId">Mã Phòng:</label> <input type="text"
+									id="roomId" name="maPhong" value="${thuePhong.phong.maPhong}"
+									readonly>
+							</div>
+							<div class="form-group">
+								<label for="customerId">Mã Khách hàng:</label> <input
+									type="text" id="customerId" name="maKhachHang"
+									value="${thuePhong.khachHang.maKhachHang}" readonly>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Nhận phòng" class="btn-primary">
+							</div>
+						</form>
+
+						<!-- 	</td>
+						</tr> -->
 					</c:forEach>
 				</div>
 			</div>

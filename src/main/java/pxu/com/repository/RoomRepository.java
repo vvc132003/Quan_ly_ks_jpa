@@ -40,7 +40,7 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'có khách'")
 	long countPhongDangThue();
-	
+
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'đã đặt'")
 	long countPhongDaDat();
 
@@ -49,11 +49,11 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'đang sửa chữa'")
 	long countPhongDangSuaChua();
-	
+
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'chưa dọn'")
 	long countPhongDangChuaDon();
-	
-	
-	
+
+	@Query("SELECT p FROM Phong p WHERE p.tinhTrangPhong = 'còn trống'")
+	List<Phong> findAllPhongConTrong();
 
 }

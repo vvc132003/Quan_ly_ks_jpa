@@ -15,24 +15,7 @@
 <!-- Font Awesome Stylesheet -->
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/style1.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.min.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/responsive1.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/orange.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.carousel.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.theme.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/flexslider.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/datepicker.css' />" />
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/magnific-popup.css' />" />
+<link rel="stylesheet" href="<c:url value='/resources/css/index.css' />" />
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -40,10 +23,9 @@
 	crossorigin="anonymous">
 </head>
 <body id="main-homepage">
-<%-- 	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
- --%>	<br>
-	<%-- 	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%>
- --%>
+	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
+	<br>
+	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%>
 </body>
 <script src="<c:url value='/resources/js/jquery-3.2.1.min.js' />"></script>
 <script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
