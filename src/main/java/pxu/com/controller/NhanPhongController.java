@@ -49,11 +49,14 @@ public class NhanPhongController {
 	@PostMapping("/addnhanphong")
 	public String addnhanphong(@ModelAttribute("thuePhong") ThuePhong thuePhong, @RequestParam("maPhong") Long maPhong,
 			@RequestParam("maThuePhong") Long maThuePhong, @RequestParam("cccd") String cccd, Model model,
-			RedirectAttributes redirectAttributes) {
+			NhanPhong nhanPhong, RedirectAttributes redirectAttributes) {
 		KhachHang khachHang = khachHangService.findByCccd(cccd);
 		if (khachHang != null) {
 			thuePhongService.updateTrangThai(maThuePhong);
 			roomService.updattrangthaiphong(maPhong);
+			nhanPhong.setThuePhong(thuePhong);
+			nhanPhong.setNgayNhanPhong(new Date());
+			nhanPhongService.nhanPhong(nhanPhong);
 			redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
 			return "redirect:/room/listroom";
 		} else {
