@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add SinhVien</title>
+<title></title>
 <%@ include file="/WEB-INF/file/css.jsp"%>
 <%@ include file="/WEB-INF/file/js.jsp"%>
 <!-- Add Bootstrap CSS via CDN -->
@@ -45,8 +45,12 @@
 							</div>
 							<div class="form-group">
 								<label for="customerId">Mã Khách hàng:</label> <input
-									type="text" id="customerId" name="maKhachHang"
+									type="text" id="maKhachHang" name="maKhachHang"
 									value="${thuePhong.khachHang.maKhachHang}" readonly>
+							</div>
+							<div class="form-group">
+								<label for="cccd">CCCD:</label> <input type="text" id="cccd"
+									name="cccd" value="" >
 							</div>
 							<div class="form-group">
 								<input type="submit" value="Nhận phòng" class="btn-primary">

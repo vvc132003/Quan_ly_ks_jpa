@@ -38,11 +38,20 @@
 
 
 	<div style="padding: 0px 15px;">
-		<form style="padding: 20px 15px;" action="listroom" method="GET">
-			<label for="maPhong">Tìm kiếm phòng:</label> <input type="text"
-				id="maPhong" name="maPhong"> <input type="submit"
-				value="Search">
-		</form>
+		<div class="row">
+			<div class="col-5">
+				<h2 style="color: black; padding: 20px 30px;">QUẢN LÝ PHÒNG</h2>
+			</div>
+			<div class="col-7">
+				<form style="padding: 20px 34px; text-align: right;"
+					action="listroom" method="GET">
+					<label for="maPhong">Tìm kiếm phòng:</label> <input type="text"
+						placeholder="Nhập số phòng..." id="maPhong" name="maPhong">
+					<input type="submit" value="Search">
+				</form>
+			</div>
+		</div>
+
 		<div class="text">
 			<div class="room-container">
 				<c:forEach var="room" items="${rooms}" varStatus="status">
@@ -214,22 +223,22 @@
 }
 
 .cokhach {
-	background-color: #009900;
+	background-color: #489d41;
 	/* Màu đỏ cho phòng có người */
 }
 
 .controng {
-	background-color: #0099CC;
+	background-color: #2387e0;
 	/* Màu xanh lá cây cho phòng trống */
 }
 
 .dangsua {
-	background-color: #990033;
+	background-color: #e7574d;
 	/* Màu đỏ cho phòng có người */
 }
 
 .dadat {
-	background-color: #660099;
+	background-color: #cfb890;
 	/* Màu đỏ cho phòng có người */
 }
 

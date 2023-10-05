@@ -8,17 +8,16 @@
 				<i class="fa fa-bars"></i>
 			</button>
 			<div class="logo_section">
-				<a href="index.html"><img class="img-responsive"
-					src="images/logo/logo.png" alt="#" /></a>
+				
 			</div>
 			<div class="right_topbar">
 				<div class="icon_info">
 					<ul>
 						<li><a href="24#"><i class="fa fa-bell-o"></i><span
-								class="badge">2</span></a></li>
-						<li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+								class="badge"></span></a></li>
+						<li><a href="#"><i class="fa fa-quesion-circle"></i></a></li>
 						<li><a href="#"><i class="fa fa-envelope-o"></i><span
-								class="badge">3</span></a></li>
+								class="badge"></span></a></li>
 					</ul>
 					<ul class="user_profile_dd">
 						<li><a class="dropdown-toggle" data-toggle="dropdown"> <img

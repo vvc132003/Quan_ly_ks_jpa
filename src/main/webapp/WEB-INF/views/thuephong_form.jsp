@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add SinhVien</title>
+<title></title>
 <%@ include file="/WEB-INF/file/css.jsp"%>
 <%@ include file="/WEB-INF/file/js.jsp"%>
 <!-- Add Bootstrap CSS via CDN -->
@@ -56,6 +56,11 @@
 							<form:label path="khachHang.email" class="form-label">Email:</form:label>
 							<form:input path="khachHang.email" class="form-control" />
 							<form:errors path="khachHang.email" class="text-danger" />
+						</div>
+						<div class="mb-3">
+							<form:label path="khachHang.cccd" class="form-label">CCCD:</form:label>
+							<form:input path="khachHang.cccd" class="form-control" />
+							<form:errors path="khachHang.cccd" class="text-danger" />
 						</div>
 						<div class="mb-3">
 							<form:input type="hidden" path="nhanVien.maNhanVien"

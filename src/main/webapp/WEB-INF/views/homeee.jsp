@@ -19,16 +19,16 @@
 					<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 					<br>
 					<div class="text-center" style="padding: 0px 23px;">
-						<div class="square" style="background-color: #0099CC">
+						<div class="square" style="background-color: #2387e0">
 							<a>Phòng trống (${soPhongTrong})</a>
 						</div>
-						<div class="square" style="background-color: #009900">
+						<div class="square" style="background-color: #489d41">
 							<a>Phòng đã có người ở (${soPhongDangThue})</a>
 						</div>
-						<div class="square" style="background-color: #660099">
+						<div class="square" style="background-color: #cfb890">
 							<a>Phòng có người đặt (${soPhongDadat})</a>
 						</div>
-						<div class="square" style="background-color: #990033">
+						<div class="square" style="background-color: #e7574d">
 							<a>Phòng đang sửa chữa (${soPhongDangsuachua})</a>
 						</div>
 						<div class="square" style="background-color: #C0C0C0">

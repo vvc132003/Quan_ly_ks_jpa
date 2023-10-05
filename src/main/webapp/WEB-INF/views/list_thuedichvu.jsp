@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>KhoaHoc List</title>
+<title></title>
 <%@ include file="/WEB-INF/file/css.jsp"%>
 <%@ include file="/WEB-INF/file/js.jsp"%>
 <link

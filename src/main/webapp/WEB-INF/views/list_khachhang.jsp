@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>KhoaHoc List</title>
+<title></title>
 <%@ include file="/WEB-INF/file/css.jsp"%>
 <%@ include file="/WEB-INF/file/js.jsp"%>
 <link
@@ -38,6 +38,7 @@
 									<th>Số điện thoại</th>
 									<th>Địa chỉ</th>
 									<th>Email</th>
+									<th>CCCD</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -50,6 +51,7 @@
 										<td>${khoahoc.soDienThoai}</td>
 										<td>${khoahoc.diaChi}</td>
 										<td>${khoahoc.email}</td>
+										<td>${khoahoc.cccd}</td>
 										<td><a class="btn btn-danger"
 											href="deletekhachhang?khachhangid=${khoahoc.maKhachHang}">
 												<i class="fas fa-trash-alt"></i>

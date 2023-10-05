@@ -27,28 +27,40 @@ public class KhachHang {
 	@Column(name = "Email")
 	private String email;
 
+	@Column(name = "CCCD")
+	private String cccd;
+
 	@Column(name = "DiaChi")
 	private String diaChi;
 
 	@Column(name = "TaiKhoan")
 	private String taiKhoan;
 
-	// Trường mật khẩu cho nhân viên
-	@Column(name = "MatKhau")
-	private String matKhau;
-
-	public KhachHang(Long maKhachHang, String hoVaTenDem, String soDienThoai, String email, String diaChi,
+	public KhachHang(Long maKhachHang, String hoVaTenDem, String soDienThoai, String email, String cccd, String diaChi,
 			String taiKhoan, String matKhau, Collection<ThuePhong> danhSachThuePhong) {
 		super();
 		this.maKhachHang = maKhachHang;
 		this.hoVaTenDem = hoVaTenDem;
 		this.soDienThoai = soDienThoai;
 		this.email = email;
+		this.cccd = cccd;
 		this.diaChi = diaChi;
 		this.taiKhoan = taiKhoan;
 		this.matKhau = matKhau;
 		this.danhSachThuePhong = danhSachThuePhong;
 	}
+
+	public String getCccd() {
+		return cccd;
+	}
+
+	public void setCccd(String cccd) {
+		this.cccd = cccd;
+	}
+
+	// Trường mật khẩu cho nhân viên
+	@Column(name = "MatKhau")
+	private String matKhau;
 
 	public String getTaiKhoan() {
 		return taiKhoan;

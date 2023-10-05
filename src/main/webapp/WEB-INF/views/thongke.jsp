@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dịch Vụ List</title>
+<title>Thống kê</title>
 <%@ include file="/WEB-INF/file/css.jsp"%>
 <%@ include file="/WEB-INF/file/js.jsp"%>
 <link
