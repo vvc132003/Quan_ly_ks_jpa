@@ -6,7 +6,8 @@
 	<div class="loader"></div>
 </div>
 <div class="cover_head">
-	<a class="logo" href=""><img style="width: 150px; border-radius: 100% "
+	<a class="logo" href=""><img
+		style="width: 150px; border-radius: 100%"
 		src="https://lh3.googleusercontent.com/C9i2r6k4VIFd-azgZlm0898mzOIokEzbAscymrioa92VSkB7MgYEh2Q8nN5wbcN1ScHNkQ=s85" /></a>
 
 	<div class="box_head">
@@ -63,7 +64,7 @@
 
 				<li><a class="" href="tin-tuc/">Tin tức</a></li>
 
-				<li><a class="" href="lien-he.html">Liên hệ</a></li>
+				<li><a class="" href="login">Login</a></li>
 
 				<li class="search_h"><img
 					src="http://kimnganhotel.com/images/search_h.png"></li>

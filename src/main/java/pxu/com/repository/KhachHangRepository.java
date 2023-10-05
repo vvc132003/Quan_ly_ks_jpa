@@ -18,7 +18,7 @@ public interface KhachHangRepository extends JpaRepository<KhachHang, Long> {
 	@Query("SELECT kh FROM KhachHang kh ORDER BY kh.maKhachHang DESC")
 	List<KhachHang> findAllOrderByCreatedAtDesc();
 	
-	
+    KhachHang findByCccd(String cccd);
 	
     KhachHang findByMaKhachHang(Long maKhachHang);
 

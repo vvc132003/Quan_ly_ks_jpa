@@ -36,6 +36,9 @@ public class NhanPhongController {
 	@Autowired
 	private RoomService roomService;
 
+	@Autowired
+	private KhachHangService khachHangService;
+
 	@GetMapping("listnhanphong")
 	public String listnhanphong(Model model) {
 		List<NhanPhong> nhanPhongs = nhanPhongService.getNhanPhong();
@@ -45,11 +48,18 @@ public class NhanPhongController {
 
 	@PostMapping("/addnhanphong")
 	public String addnhanphong(@ModelAttribute("thuePhong") ThuePhong thuePhong, @RequestParam("maPhong") Long maPhong,
-			@RequestParam("maThuePhong") Long maThuePhong, Model model, RedirectAttributes redirectAttributes) {
-		thuePhongService.updateTrangThai(maThuePhong);
-		roomService.updattrangthaiphong(maPhong);
-		redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
-		return "redirect:/room/listroom";
+			@RequestParam("maThuePhong") Long maThuePhong, @RequestParam("cccd") String cccd, Model model,
+			RedirectAttributes redirectAttributes) {
+		KhachHang khachHang = khachHangService.findByCccd(cccd);
+		if (khachHang != null) {
+			thuePhongService.updateTrangThai(maThuePhong);
+			roomService.updattrangthaiphong(maPhong);
+			redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
+			return "redirect:/room/listroom";
+		} else {
+			redirectAttributes.addFlashAttribute("thuephongErrorMessage", "CCCD không hợp lệ. Vui lòng kiểm tra lại!");
+			return "redirect:/thuephong/thongtinndatphong?roomId=" + maPhong;
+		}
 	}
 
 }

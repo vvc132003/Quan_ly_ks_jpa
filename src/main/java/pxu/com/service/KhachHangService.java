@@ -46,6 +46,11 @@ public class KhachHangService {
 	}
 
 	@Transactional
+	public KhachHang findByCccd(String cccd) {
+		return khachHangRepository.findByCccd(cccd);
+	}
+
+	@Transactional
 	public List<KhachHang> getkhachhang() {
 		return khachHangRepository.findAllOrderByCreatedAtDesc();
 	}
