@@ -86,12 +86,13 @@ public class RoomController {
 		long soPhongTrong = roomService.countPhongTrong();
 		long soPhongDangsuachua = roomService.countPhongDangSuaChua();
 		long soPhongDangchuadon = roomService.countPhongDangChuaDon();
+		long soPhongDadat = roomService.countPhongDaDat();
 		theModel.addAttribute("rooms", phongs);
 		theModel.addAttribute("soPhongDangThue", soPhongDangThue);
 		theModel.addAttribute("soPhongTrong", soPhongTrong);
 		theModel.addAttribute("soPhongDangsuachua", soPhongDangsuachua);
 		theModel.addAttribute("soPhongDangchuadon", soPhongDangchuadon);
-
+		theModel.addAttribute("soPhongDadat", soPhongDadat);
 		return "homeee";
 	}
 
@@ -118,7 +119,9 @@ public class RoomController {
 	@GetMapping("/home")
 	public String home(Model model) {
 		List<Phong> rooms = roomService.getRooms();
+		NhanVien nhanVien = new NhanVien();
 		model.addAttribute("rooms", rooms);
+		model.addAttribute("nhanVien", nhanVien);
 		return "home";
 	}
 
@@ -148,7 +151,7 @@ public class RoomController {
 		if (session != null) {
 			session.invalidate();
 		}
-		return "redirect:/room/login";
+		return "redirect:/room/home";
 	}
 
 	@GetMapping("/rooms")

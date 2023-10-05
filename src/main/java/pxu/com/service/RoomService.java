@@ -76,6 +76,11 @@ public class RoomService {
 	public long countPhongDangThue() {
 		return roomRepository.countPhongDangThue();
 	}
+	
+	@Transactional
+	public long countPhongDaDat() {
+		return roomRepository.countPhongDaDat();
+	}
 
 	@Transactional
 	public long countPhongTrong() {

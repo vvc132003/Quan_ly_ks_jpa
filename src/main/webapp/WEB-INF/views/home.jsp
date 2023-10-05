@@ -1,390 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CMerriweather:300,
+300i,400,400i,700,700i,900,900i"
+	rel="stylesheet">
+<!-- Font Awesome Stylesheet -->
+<link rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/style1.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.min.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/responsive1.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/orange.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/owl.carousel.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/owl.theme.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/flexslider.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/datepicker.css' />" />
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/magnific-popup.css' />" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
 </head>
-<body>
+<body id="main-homepage">
 	<%@ include file="/WEB-INF/layout/headerhome.jsp"%>
 	<br>
-	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%>
+	<%-- 	<%@ include file="/WEB-INF/layout/navbarhome.jsp"%>
+ --%>
 </body>
-<style>
-body {
-	overflow-x: hidden;
-}
-
-header {
-	background-color: #efa693;
-	font-weight: bold;
-}
-
-header hr {
-	margin: 5px;
-	margin-bottom: 15px;
-}
-
-header a:hover {
-	color: rgba(255, 99, 71, 1);
-}
-
-header a {
-	text-decoration: none;
-	color: black;
-}
-
-header .logo_1 img {
-	margin-top: -20px;
-	margin-left: 50px;
-}
-
-header .navbar {
-	display: flex;
-	position: relative;
-	padding-top: 30px;
-	overflow: hidden;
-	margin-left: 70px;
-}
-
-header h6 {
-	font-family: "Lucida Console", "Courier New", monospace bold;
-	font-size: 20px;
-	padding-left: 350px;
-	padding-top: 8px;
-	color: red;
-	animation-name: example;
-	animation-duration: 1s;
-	animation-iteration-count: infinite;
-}
-
-@
-keyframes example {
-	from {color: red;
-}
-
-to {
-	color: white;
-}
-
-}
-header .buy i {
-	padding-top: 35px;
-	font-size: 30px;
-}
-
-header .header2 .row {
-	height: 52px;
-	line-height: 52px;
-	float: left;
-	width: 100%;
-	margin-left: 100px;
-}
-
-header .header2 {
-	border-bottom: 52px solid #e8e8e8;
-}
-
-header .header2 a {
-	padding: 15px 25px 15px 25px;
-}
-
-header .header2 a:hover {
-	background-color: rgba(255, 99, 71, 1);
-	color: white;
-	padding: 15px 25px 15px 25px;
-}
-
-header .small {
-	display: flex;
-	flex-wrap: wrap;
-	padding-left: 150px;
-	list-style: none;
-}
-
-content .danhmuc {
-	margin-left: 100px;
-	border: 1px solid lightgrey;
-}
-
-content .danhmuc button:hover {
-	background-color: rgba(255, 99, 71, 1);
-	color: white;
-}
-
-content  .container_0 .carousel img {
-	padding-top: 23px;
-	height: 678px;
-}
-
-content .container_1 .active img {
-	height: 350px;
-	width: 350px;
-}
-
-content .sale {
-	padding-left: 133px;
-	padding-right: 155px;
-	padding-top: 20px;
-}
-
-content .sale img {
-	margin-top: 20px;
-	width: 287px;
-	height: 300px;
-	border: 2px solid red;
-}
-
-.product .product-top {
-	position: relative;
-	overflow: hidden;
-}
-
-.product .product-top a.buy-now {
-	text-decoration: none;
-	text-align: center;
-	display: block;
-	background-color: rgba(255, 99, 71, 1);
-	color: white;
-	padding: 10px 0px;
-	position: absolute;
-	bottom: -44px;
-	width: 100%;
-	transition: 0.15s ease-in-out;
-}
-
-.product .product-top:hover a.buy-now {
-	bottom: 0px;
-}
-
-content .row {
-	padding-bottom: 20px;
-	margin: -10px;
-}
-
-content  hr {
-	border-bottom: 5px solid #ea0000;
-	margin-left: 530px;
-}
-
-content .sanpham {
-	margin: auto;
-}
-
-content .sanpham .submit1 button {
-	background-color: red;
-	color: white;
-	margin-right: 10px;
-}
-
-content  .size button {
-	background-color: white;
-	color: red;
-	margin-top: -7px;
-	border: 1px solid #D14A7C;
-	padding: 6px 13px;
-	border-radius: 6px;
-}
-
-content .mssp button:hover {
-	background-color: rgba(255, 99, 71, 1);
-	color: white;
-}
-
-content .card {
-	text-align: center;
-}
-
-content a {
-	text-decoration: none;
-	color: black;
-}
-
-content a:hover {
-	color: rgba(255, 99, 71, 1);
-}
-
-content .card-text {
-	color: red;
-}
-
-content button {
-	background-color: #f0532b;
-	border: 1px solid #D14A7C;
-	padding: 6px 13px;
-	border-radius: 6px;
-	color: #fff;
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-content .uudai {
-	padding-left: 120px;
-	padding-right: 120px;
-	padding-top: 100px;
-	padding-bottom: 30px;
-}
-
-.home-product .carousel-control-next-icon {
-	background-color: #e3e3e3;
-	background-image:
-		url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
-	width: 3rem;
-	height: 67px;
-	margin-left: 45px;
-}
-
-.home-product .carousel-control-prev-icon {
-	background-color: #e3e3e3;
-	background-image:
-		url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
-	width: 3rem;
-	height: 67px;
-	margin-right: 45px;
-}
-
-.home-product .carousel-control-prev-icon {
-	transform: rotate(180deg);
-}
-
-.home-product .carousel-control-next-icon:hover,
-	.carousel-control-prev-icon:hover {
-	background-color: black;
-	background-image:
-		url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
-}
-
-.home-product .carousel {
-	height: 90%;
-}
-
-.home-product .carousel-indicators {
-	width: 20rem;
-	height: 2rem;
-	justify-content: center;
-	margin-left: 0;
-	margin-right: 0;
-	width: 100%;
-}
-
-.home-product .carousel-indicators .active {
-	border: solid 1px rgba(0, 0, 0, 0);
-}
-
-.home-product .carousel-indicators .col-3 {
-	width: 20%;
-	height: 20%;
-}
-
-.home-product .carousel-indicators img {
-	border: 2px solid #282e31f8;
-}
-
-.home-product .carousel-item.active {
-	height: 24rem;
-}
-
-.tren {
-	margin-top: 80px;
-}
-
-footer {
-	background-color: #a6a6a6;
-	padding-top: 30px;
-}
-
-footer h5 {
-	padding-bottom: 15px;
-	padding-left: 30px;
-}
-
-footer p {
-	padding-left: 5px;
-}
-
-footer i {
-	padding-right: 5px;
-}
-
-footer img {
-	margin: 5px;
-}
-
-footer .endd {
-	background-color: black;
-	color: #6c757d;
-	padding-top: 6px;
-	margin-top: -17px;
-	height: 39px;
-}
-
-.border_ft {
-	border-bottom: 1px solid #959596;
-}
-
-.hotline_new {
-	position: fixed;
-	top: 30%;
-	right: 0;
-	background: #ea0000
-		url(https://bizweb.dktcdn.net/100/092/840/themes/120497/assets/icon-hotline.gif?1651050579130)
-		no-repeat left center;
-	background-size: contain;
-	padding: 6px 0;
-	border-radius: 35px 0 0 34px;
-	z-index: 99;
-	min-width: 174px;
-}
-
-.hotline_new a {
-	text-decoration: none;
-	padding-left: 50px;
-	color: white;
-	font-size: 22px;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-div {
-	display: block;
-}
-
-#myBtn {
-	display: none;
-	position: fixed;
-	bottom: 30px;
-	right: 30px;
-	z-index: 99;
-	font-size: 10px;
-	border: none;
-	outline: none;
-	background-color: red;
-	color: white;
-	cursor: pointer;
-	border-radius: 10px;
-}
-
-#myBtn:hover {
-	background-color: #555;
-}
-</style>
+<script src="<c:url value='/resources/js/jquery-3.2.1.min.js' />"></script>
+<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+<script src="<c:url value='/resources/js/custom.js' />"></script>
 </html>

@@ -40,6 +40,9 @@ public interface RoomRepository extends JpaRepository<Phong, Long> {
 
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'có khách'")
 	long countPhongDangThue();
+	
+	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'đã đặt'")
+	long countPhongDaDat();
 
 	@Query("SELECT COUNT(p) FROM Phong p WHERE p.tinhTrangPhong = 'còn trống'")
 	long countPhongTrong();

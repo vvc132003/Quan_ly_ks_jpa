@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pxu.com.model.DichVu;
+import pxu.com.model.KhachHang;
 import pxu.com.model.ThueDichVu;
 import pxu.com.repository.DichVuRepository;
 import pxu.com.repository.ThueDichVuRepository;
@@ -24,6 +25,7 @@ public class ThueDichVuService {
 	public List<ThueDichVu> getThueDichVu() {
 		return thueDichVuRepository.findAll();
 	}
+
 
 	@Transactional
 	public List<Object[]> findTotalRevenueByService() {

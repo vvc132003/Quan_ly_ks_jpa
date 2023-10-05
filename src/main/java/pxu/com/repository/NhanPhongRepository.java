@@ -1,5 +1,7 @@
 package pxu.com.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,4 +17,8 @@ import pxu.com.model.ThuePhong;
 @Repository("nhanPhongRepository")
 public interface NhanPhongRepository extends JpaRepository<NhanPhong, Long> {
 
+	
+	@Query("SELECT tp FROM NhanPhong tp ORDER BY tp.maNhanPhong DESC")
+	List<NhanPhong> findAllOrderByMaNhanPhongDesc();
+	
 }

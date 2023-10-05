@@ -18,7 +18,7 @@
 				<div id="content">
 					<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 					<br>
-					<div style="padding: 0px 23px;">
+					<div class="text-center" style="padding: 0px 23px;">
 						<div class="square" style="background-color: #0099CC">
 							<a>Phòng trống (${soPhongTrong})</a>
 						</div>
@@ -26,7 +26,7 @@
 							<a>Phòng đã có người ở (${soPhongDangThue})</a>
 						</div>
 						<div class="square" style="background-color: #660099">
-							<a>Phòng có người đặt</a>
+							<a>Phòng có người đặt (${soPhongDadat})</a>
 						</div>
 						<div class="square" style="background-color: #990033">
 							<a>Phòng đang sửa chữa (${soPhongDangsuachua})</a>

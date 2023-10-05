@@ -19,11 +19,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pxu.com.model.DichVu;
 import pxu.com.model.KhachHang;
+import pxu.com.model.NhanPhong;
 import pxu.com.model.NhanVien;
 import pxu.com.model.Phong;
 import pxu.com.model.ThueDichVu;
 import pxu.com.model.ThuePhong;
 import pxu.com.service.KhachHangService;
+import pxu.com.service.NhanPhongService;
 import pxu.com.service.RoomService;
 import pxu.com.service.ThueDichVuService;
 import pxu.com.service.ThuePhongService;
@@ -40,6 +42,9 @@ public class ThuePhongController {
 
 	@Autowired
 	private ThueDichVuService thueDichVuService;
+
+	@Autowired
+	private NhanPhongService nhanPhongService;
 
 	@Autowired
 	private KhachHangService khachHangService;
@@ -101,7 +106,7 @@ public class ThuePhongController {
 //	}
 
 	@PostMapping("/addthuephong")
-	public String savethuephong(@ModelAttribute("thuePhong") ThuePhong thuePhong,
+	public String savethuephong(@ModelAttribute("thuePhong") ThuePhong thuePhong, NhanPhong nhanPhong,
 			@RequestParam("phong.maPhong") Long maPhong, Model model, RedirectAttributes redirectAttributes) {
 		KhachHang khachHang = khachHangService.savekhachhang1(thuePhong.getKhachHang());
 		// Lấy mã khách hàng sau khi tạo
@@ -119,6 +124,9 @@ public class ThuePhongController {
 		thuePhong.setTongTien(tongtiennn);
 		thuePhongService.thuePhong(thuePhong);
 //		thuePhongService.sendEmails();
+		nhanPhong.setThuePhong(thuePhong);
+		nhanPhong.setNgayNhanPhong(new Date());
+		nhanPhongService.nhanPhong(nhanPhong);
 		roomService.updattrangthaiphong(maPhong);
 		redirectAttributes.addFlashAttribute("thuephongSuccessMessage", "Thuê phòng thành công!");
 		return "redirect:/room/listroom";
@@ -163,6 +171,13 @@ public class ThuePhongController {
 		model.addAttribute("tongThanhTien", result);
 		model.addAttribute("data", data);
 		return "thongke";
+	}
+
+	@GetMapping("listthuedichvu")
+	public String listthuedichvu(@RequestParam("maThuePhong") Long maThuePhong, Model model) {
+		List<ThueDichVu> thueDichVus = thueDichVuService.getThueDichVusByMaThuePhong(maThuePhong);
+		model.addAttribute("thueDichVus", thueDichVus);
+		return "list_thuedichvu";
 	}
 
 	// Phương thức này chuyển đổi dữ liệu doanh thu thành JSON để sử dụng trong JSP

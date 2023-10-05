@@ -21,7 +21,7 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="container">
-					<h1 class="mt-5 mb-4 text-center">Danh sách thuê phòng</h1>
+					<h1 class="mt-5 mb-4 text-center">Danh sách nhận phòng</h1>
 					<div class="d-flex justify-content-between">
 						<%-- <a
 							href="${pageContext.request.contextPath}/khachhang/khachhangform"
@@ -33,27 +33,19 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Tên khách hàng</th>
+									<th>Mã thuê phòng</th>
 									<th>Thời gian nhận phòng</th>
-									<th>Thời gian dự kiến trả phòng</th>
-									<th>Trạng thái</th>
-									<th>Action</th>
+									<th>Tên khách hàng</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${thuePhongs}" var="phieuThuePhong"
+								<c:forEach items="${nhanPhongs}" var="nhanPhong"
 									varStatus="status">
 									<tr>
 										<td>${status.index + 1}</td>
-										<td>${phieuThuePhong.khachHang.hoVaTenDem}</td>
-										<td>${phieuThuePhong.ngayNhanPhong}</td>
-										<td>${phieuThuePhong.ngayTraPhong}</td>
-										<td>${phieuThuePhong.trangThai}</td>
-										<td><a
-											href="listthuedichvu?maThuePhong=${phieuThuePhong.maThuePhong}"
-											class="btn btn-warning"> <i style="color: white;"
-												class="fas fa-eye"></i>
-										</a></td>
+										<td>${nhanPhong.thuePhong.maThuePhong}</td>
+										<td>${nhanPhong.ngayNhanPhong}</td>
+										<td>${nhanPhong.thuePhong.khachHang.hoVaTenDem}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

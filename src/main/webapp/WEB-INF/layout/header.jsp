@@ -28,7 +28,9 @@
 		</div>
 	</div>
 	<div class="sidebar_blog_2">
-		<h4>Trang chủ</h4>
+		<h4>
+			<i class="fas fa-home text-primary"></i> Trang chủ
+		</h4>
 		<ul class="list-unstyled components">
 			<%-- <li class="active"><a href="#dashboard" data-toggle="collapse"
 				aria-expanded="false" class="dropdown-toggle"><i
@@ -42,20 +44,22 @@
 				</ul></li> --%>
 			<!-- nhân viên  -->
 			<li><a href="${pageContext.request.contextPath}/room/listroom"><i
-					class="fas fa-bed orange_color"></i> <span>Phòng</span></a>
-			</li>
+					class="fas fa-bed orange_color"></i> <span>Phòng</span></a></li>
 			<li><a
 				href="${pageContext.request.contextPath}/nhanvien/listnhanvien"><i
-					class="fa fa-clock-o orange_color"></i> <span>Nhân Viên</span></a></li>
+					class="fas fa-user orange_color"></i> <span>Nhân Viên</span></a></li>
+
 			<!-- KHÁCH HÀNG-->
 			<li><a
 				href="${pageContext.request.contextPath}/khachhang/listkhachhang"><i
-					class="fa fa-paper-plane red_color"></i> <span>Khách Hàng</span></a></li>
+					class="fas fa-user-tie red_color"></i> <span>Khách Hàng</span></a></li>
 
 			<!-- dịch vụ -->
 			<li><a
 				href="${pageContext.request.contextPath}/dichvu/listDichVu"><i
-					class="fa fa-table purple_color2"></i> <span>Dịch vụ</span></a></li>
+					class="fas fa-concierge-bell purple_color2"></i> <span>Dịch
+						vụ</span></a></li>
+
 			<!--đơn -->
 
 			<li><a href="#apps" data-toggle="collapse" aria-expanded="false"
@@ -64,20 +68,31 @@
 						đơn</span></a>
 				<ul class="collapse list-unstyled" id="apps">
 					<li><a
-						href="${pageContext.request.contextPath}/thuephong/listthuephong">>
-							<span>Đơn thuê phòng </span>
-					</a></li>
-					<li><a href="email.html">> <span>Đơn nhận phòng</span></a></li>
+						href="${pageContext.request.contextPath}/thuephong/listthuephong"><i
+							class="fas fa-file-alt blue2_color"></i> <span>Đơn thuê
+								phòng</span></a></li>
+
 					<li><a
-						href="${pageContext.request.contextPath}/traphong/listtraphong">>
-							<span>Đơn trả phòng</span>
-					</a></li>
+						href="${pageContext.request.contextPath}/nhanphong/listnhanphong"><i
+							class="fas fa-file-invoice blue2_color"></i> <span>Đơn
+								nhận phòng</span></a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/traphong/listtraphong"><i
+							class="fas fa-file-signature blue2_color"></i> <span>Đơn
+								trả phòng</span></a></li>
 				</ul></li>
 			<li><a
 				href="${pageContext.request.contextPath}/thuephong/thong-ke-theo-thang"><i
 					class="fa fa-bar-chart-o green_color"></i> <span>Thống kê</span></a></li>
 			<li><a href="${pageContext.request.contextPath}/room/logout"><i
-					class="fa fa-cog yellow_color"></i> <span>Logout</span></a></li>
+					class="fas fa-sign-out-alt yellow_color"></i> <span>Đăng
+						Xuất</span></a></li>
 		</ul>
 	</div>
 </nav>
+<style>
+span {
+	color: white;
+	font-weight: 600;
+}
+</style>

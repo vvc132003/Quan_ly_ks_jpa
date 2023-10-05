@@ -21,7 +21,7 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="container">
-					<h1 class="mt-5 mb-4 text-center">Danh sách thuê phòng</h1>
+					<h1 class="mt-5 mb-4 text-center">Danh sách thuê dịch vụ</h1>
 					<div class="d-flex justify-content-between">
 						<%-- <a
 							href="${pageContext.request.contextPath}/khachhang/khachhangform"
@@ -29,31 +29,38 @@
 							Thêm mới</a> --%>
 					</div>
 					<div class="table-container">
-						<table class="table table-striped" id="productTable" ne>
+						<table class="table table-striped" id="productTable">
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Tên khách hàng</th>
-									<th>Thời gian nhận phòng</th>
-									<th>Thời gian dự kiến trả phòng</th>
-									<th>Trạng thái</th>
-									<th>Action</th>
+									<th>Số lượng</th>
+									<th>Tên dịch vụ</th>
+									<th>Giá bán</th>
+									<th>Thành tiền</th>
+									<th>Ảnh</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${thuePhongs}" var="phieuThuePhong"
-									varStatus="status">
+								<c:forEach items="${thueDichVus}" var="thueDichVu"
+									varStatus="loop">
 									<tr>
-										<td>${status.index + 1}</td>
-										<td>${phieuThuePhong.khachHang.hoVaTenDem}</td>
-										<td>${phieuThuePhong.ngayNhanPhong}</td>
-										<td>${phieuThuePhong.ngayTraPhong}</td>
-										<td>${phieuThuePhong.trangThai}</td>
-										<td><a
-											href="listthuedichvu?maThuePhong=${phieuThuePhong.maThuePhong}"
-											class="btn btn-warning"> <i style="color: white;"
-												class="fas fa-eye"></i>
-										</a></td>
+										<td>${loop.index + 1}</td>
+										<td>${thueDichVu.soLuong}</td>
+										<td>${thueDichVu.dichVu.tenDichVu}</td>
+										<td>${thueDichVu.dichVu.gia}</td>
+										<td>${thueDichVu.thanhTien}</td>
+										<td><img class="small-image"
+											src="${thueDichVu.dichVu.image}" alt="Ảnh dịch vụ"></td>
+										<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
+											<td><a
+												href="deleteThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
+												class="btn btn-danger"> <i class="fas fa-minus"></i>
+											</a> <a
+												href="updateThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
+												class="btn btn-warning"> <i style="color: white;"
+													class="fas fa-plus"></i>
+											</a></td>
+										</c:forEach>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -65,8 +72,8 @@
 	</div>
 	<style>
 .small-image {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 }
 
 .table-container {
