@@ -26,6 +26,11 @@ public class ThueDichVuService {
 	}
 
 	@Transactional
+	public List<Object[]> findTotalRevenueByService() {
+		return thueDichVuRepository.findTotalRevenueByService();
+	}
+
+	@Transactional
 	public List<ThueDichVu> getThueDichVusByMaThuePhong(Long maThuePhong) {
 		return thueDichVuRepository.findByThuePhongMaThuePhong(maThuePhong);
 	}

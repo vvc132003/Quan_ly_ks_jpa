@@ -37,7 +37,7 @@
 									<th>Mô tả</th>
 									<th>Gía bán</th>
 									<th>Ảnh</th>
-									<th>Hành động</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -54,7 +54,7 @@
 												class="fas fa-trash-alt"></i>
 										</a> <a class="btn btn-warning"
 											href="updateDichVu?dichvuID=${khoahoc.maDichVu}"><i
-												class="fas fa-edit"></i></a></td>
+												style="color: white;" class="fas fa-edit"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

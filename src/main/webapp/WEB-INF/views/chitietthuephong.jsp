@@ -58,8 +58,9 @@
 										<th>ID</th>
 										<th>Số lượng</th>
 										<th>Tên dịch vụ</th>
+										<th>Giá bán</th>
 										<th>Thành tiền</th>
-										<th>Hành động</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -69,6 +70,7 @@
 											<td>${loop.index + 1}</td>
 											<td>${thueDichVu.soLuong}</td>
 											<td>${thueDichVu.dichVu.tenDichVu}</td>
+											<td>${thueDichVu.dichVu.gia}</td>
 											<td>${thueDichVu.thanhTien}</td>
 											<c:forEach items="${phieuThuePhongList}" var="phieuThuePhong">
 												<td><a
@@ -76,7 +78,8 @@
 													class="btn btn-danger"> <i class="fas fa-minus"></i>
 												</a> <a
 													href="updateThueDichVu?thuedichvuID=${thueDichVu.maThueDichVu}&maPhong=${phieuThuePhong.phong.maPhong}"
-													class="btn btn-warning"> <i class="fas fa-plus"></i>
+													class="btn btn-warning"> <i style="color: white;"
+														class="fas fa-plus"></i>
 												</a></td>
 											</c:forEach>
 										</tr>

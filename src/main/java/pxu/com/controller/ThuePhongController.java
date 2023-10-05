@@ -25,6 +25,7 @@ import pxu.com.model.ThueDichVu;
 import pxu.com.model.ThuePhong;
 import pxu.com.service.KhachHangService;
 import pxu.com.service.RoomService;
+import pxu.com.service.ThueDichVuService;
 import pxu.com.service.ThuePhongService;
 
 @Controller
@@ -36,6 +37,9 @@ public class ThuePhongController {
 
 	@Autowired
 	private ThuePhongService thuePhongService;
+
+	@Autowired
+	private ThueDichVuService thueDichVuService;
 
 	@Autowired
 	private KhachHangService khachHangService;
@@ -144,4 +148,29 @@ public class ThuePhongController {
 		return "redirect:/room/home";
 	}
 
+	@GetMapping("/listthuephong")
+	public String listthuephong(Model model) {
+		List<ThuePhong> thuePhongs = thuePhongService.findAllThuePhongOrderByMaThuePhongDesc();
+		model.addAttribute("thuePhongs", thuePhongs);
+		return "list_thuephong";
+	}
+
+	@GetMapping("/thong-ke-theo-thang")
+	public String thongKeDoanhThuTheoThang(Model model) {
+		List<Object[]> data = thuePhongService.thongKeDoanhThuTheoThang();
+		List<Object[]> result = thueDichVuService.findTotalRevenueByService();
+		model.addAttribute("maDichVu", result);
+		model.addAttribute("tongThanhTien", result);
+		model.addAttribute("data", data);
+		return "thongke";
+	}
+
+	// Phương thức này chuyển đổi dữ liệu doanh thu thành JSON để sử dụng trong JSP
+	/*
+	 * private String convertDataToJson(List<Object[]> data) { StringBuilder json =
+	 * new StringBuilder("["); for (Object[] item : data) {
+	 * json.append("['").append(item[0]).append("', ").append(item[1]).append("], "
+	 * ); } if (data.size() > 0) { json.delete(json.length() - 2, json.length()); }
+	 * json.append("]"); return json.toString(); }
+	 */
 }

@@ -105,6 +105,11 @@
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version> <!-- Hoặc phiên bản mới nhất -->
 		</dependency>
+		<dependency>
+			<groupId>org.jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.5.3</version> <!-- Sử dụng phiên bản mới nhất -->
+		</dependency>
 	</dependencies>
 
 	<build>

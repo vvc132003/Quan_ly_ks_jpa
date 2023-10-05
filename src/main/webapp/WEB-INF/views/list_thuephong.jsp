@@ -21,41 +21,33 @@
 				<%@ include file="/WEB-INF/layout/navbar.jsp"%>
 				<br>
 				<div class="container">
-					<h1 class="mt-5 mb-4 text-center">Danh sách Khách Hàng</h1>
+					<h1 class="mt-5 mb-4 text-center">Danh sách thuê phòng</h1>
 					<div class="d-flex justify-content-between">
-						<a
+						<%-- <a
 							href="${pageContext.request.contextPath}/khachhang/khachhangform"
-							class="btn btn-primary mb-4 ml-auto"> <i class="fas fa-plus"></i>
-							Thêm mới
-						</a>
+							class="btn btn-primary mb-4 ml-auto"><i class="fas fa-plus"></i>
+							Thêm mới</a> --%>
 					</div>
 					<div class="table-container">
-						<table class="table table-striped" id="productTable">
+						<table class="table table-striped" id="productTable" ne>
 							<thead>
 								<tr>
 									<th>ID</th>
 									<th>Tên khách hàng</th>
-									<th>Số điện thoại</th>
-									<th>Địa chỉ</th>
-									<th>Email</th>
-									<th>Action</th>
+									<th>Thời gian nhận phòng</th>
+									<th>Thời gian dự kiến trả phòng</th>
+									<th>Trạng thái</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${khachHangs}" var="khoahoc"
+								<c:forEach items="${thuePhongs}" var="phieuThuePhong"
 									varStatus="status">
 									<tr>
 										<td>${status.index + 1}</td>
-										<td>${khoahoc.hoVaTenDem}</td>
-										<td>${khoahoc.soDienThoai}</td>
-										<td>${khoahoc.diaChi}</td>
-										<td>${khoahoc.email}</td>
-										<td><a class="btn btn-danger"
-											href="deletekhachhang?khachhangid=${khoahoc.maKhachHang}">
-												<i class="fas fa-trash-alt"></i>
-										</a> <a class="btn btn-warning"
-											href="updateDichVu?dichvuID=${khoahoc.maKhachHang}"><i
-												style="color: white;" class="fas fa-edit"></i></a></td>
+										<td>${phieuThuePhong.khachHang.hoVaTenDem}</td>
+										<td>${phieuThuePhong.ngayNhanPhong}</td>
+										<td>${phieuThuePhong.ngayTraPhong}</td>
+										<td>${phieuThuePhong.trangThai}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -68,7 +60,7 @@
 	<style>
 .small-image {
 	width: 100px;
-	height: auto;
+	height: 100px;
 }
 
 .table-container {

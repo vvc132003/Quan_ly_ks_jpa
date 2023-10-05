@@ -37,6 +37,11 @@ public class ThuePhongService {
 	}
 
 	@Transactional
+	public List<Object[]> thongKeDoanhThuTheoThang() {
+		return thuePhongRepository.thongKeDoanhThuTheoThang();
+	}
+
+	@Transactional
 	public List<ThuePhong> findAllByMaPhong(Long maPhong) {
 		return thuePhongRepository.findAllByMaPhongAndTrangThai(maPhong);
 	}
@@ -44,6 +49,11 @@ public class ThuePhongService {
 	@Transactional
 	public List<ThuePhong> findAllByMaPhongAndTrangThaiDadat(Long maPhong) {
 		return thuePhongRepository.findAllByMaPhongAndTrangThaiDadat(maPhong);
+	}
+
+	@Transactional
+	public List<ThuePhong> findAllThuePhongOrderByMaThuePhongDesc() {
+		return thuePhongRepository.findAllOrderByMaThuePhongDesc();
 	}
 
 	@Transactional

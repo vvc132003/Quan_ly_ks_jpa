@@ -16,5 +16,7 @@ import pxu.com.model.TraPhong;
 
 @Repository("traPhongRepository")
 public interface TraPhongRepository extends JpaRepository<TraPhong, Long> {
-	
+
+	@Query("SELECT tp FROM TraPhong tp ORDER BY tp.maTraPhong DESC")
+	List<TraPhong> findAllOrderByMmTraPhongDesc();
 }

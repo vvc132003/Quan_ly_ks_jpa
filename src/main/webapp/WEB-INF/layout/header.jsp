@@ -30,7 +30,7 @@
 	<div class="sidebar_blog_2">
 		<h4>Trang chủ</h4>
 		<ul class="list-unstyled components">
-			<li class="active"><a href="#dashboard" data-toggle="collapse"
+			<%-- <li class="active"><a href="#dashboard" data-toggle="collapse"
 				aria-expanded="false" class="dropdown-toggle"><i
 					class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
 				<ul class="collapse list-unstyled" id="dashboard">
@@ -39,10 +39,11 @@
 					</a></li>
 					<li><a href="dashboard_2.html">> <span>Dashboard
 								style 2</span></a></li>
-				</ul></li>
+				</ul></li> --%>
 			<!-- nhân viên  -->
 			<li><a href="${pageContext.request.contextPath}/room/listroom"><i
-					class="fa fa-clock-o orange_color"></i> <span>Phòng</span></a></li>
+					class="fas fa-bed orange_color"></i> <span>Phòng</span></a>
+			</li>
 			<li><a
 				href="${pageContext.request.contextPath}/nhanvien/listnhanvien"><i
 					class="fa fa-clock-o orange_color"></i> <span>Nhân Viên</span></a></li>
@@ -62,13 +63,18 @@
 					class="fa fa-object-group blue2_color"></i> <span>Các loại
 						đơn</span></a>
 				<ul class="collapse list-unstyled" id="apps">
+					<li><a
+						href="${pageContext.request.contextPath}/thuephong/listthuephong">>
+							<span>Đơn thuê phòng </span>
+					</a></li>
 					<li><a href="email.html">> <span>Đơn nhận phòng</span></a></li>
-					<li><a href="calendar.html">> <span>Đơn đặt phòng</span></a></li>
-					<li><a href="media_gallery.html">> <span>Đơn thuê
-								phòng </span></a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/traphong/listtraphong">>
+							<span>Đơn trả phòng</span>
+					</a></li>
 				</ul></li>
-
-			<li><a href="charts.html"><i
+			<li><a
+				href="${pageContext.request.contextPath}/thuephong/thong-ke-theo-thang"><i
 					class="fa fa-bar-chart-o green_color"></i> <span>Thống kê</span></a></li>
 			<li><a href="${pageContext.request.contextPath}/room/logout"><i
 					class="fa fa-cog yellow_color"></i> <span>Logout</span></a></li>

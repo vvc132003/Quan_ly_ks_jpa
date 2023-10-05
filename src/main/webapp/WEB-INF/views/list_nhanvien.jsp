@@ -38,7 +38,7 @@
 									<th>Tài khoản</th>
 									<th>Mật khẩu</th>
 									<th>Vai trò</th>
-									<th>Hành động</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -55,7 +55,7 @@
 												<i class="fas fa-trash-alt"></i>
 										</a> <a class="btn btn-warning"
 											href="updateDichVu?dichvuID=${khoahoc.maNhanVien}"> <i
-												class="fas fa-edit"></i>
+												style="color: white;" class="fas fa-edit"></i>
 										</a></td>
 									</tr>
 								</c:forEach>

@@ -28,4 +28,10 @@ public class TraPhongService {
 	public void traphong(TraPhong traPhong) {
 		traPhongRepository.save(traPhong);
 	}
+	
+	
+	@Transactional
+	public List<TraPhong> findAllOrderByMmTraPhongDesc() {
+		return traPhongRepository.findAllOrderByMmTraPhongDesc();
+	}
 }
